@@ -4,29 +4,28 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.swing.Swing
 import java.util.concurrent.TimeUnit
 
-class FileMover {
+class Watcher {
+    companion object {
+        var WATCHING = false
+    }
+
     private var coroutineScope = CoroutineScope(Dispatchers.Swing)
-    private var isActive = false
 
     fun start() {
-        if(isActive) return
+        if(WATCHING) return
 
         coroutineScope.launch {
-            this@FileMover.isActive = true
-            while (isActive) {
+            WATCHING = true
+            while (WATCHING) {
                 delay(TimeUnit.SECONDS.toMillis(5))
                 println("Hello world!")
             }
         }
     }
 
-    fun pause() {
-        isActive = false
-    }
-
     fun stop() {
         coroutineScope.cancel()
         coroutineScope = CoroutineScope(Dispatchers.Main)
-        isActive = false
+        WATCHING = false
     }
 }

@@ -7,14 +7,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import xyz.atnrch.wrench.display.WrenchDisplay
-import xyz.atnrch.wrench.scheduler.FileMover
+import xyz.atnrch.wrench.scheduler.Watcher
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        val fileMover = remember { FileMover() }
-        WrenchDisplay(onStartButtonClick = fileMover::start)
+        val watcher = remember { Watcher() }
+        WrenchDisplay(
+            onStartButtonClick = watcher::start,
+            onStopButtonClick = watcher::stop,
+            onAddButtonClick = {}
+        )
     }
 }
 
