@@ -1,16 +1,17 @@
-package xyz.atnrch.wrench.io
+package xyz.atnrch.wrench.watcher
 
+import xyz.atnrch.wrench.logger.Logger
 import java.io.File
 
-class IOManager {
-    private val paths: List<IOPath>
+class WatcherManager {
+    private val entries: List<WatcherEntry>
 
     init {
-        paths = arrayListOf()
+        entries = arrayListOf()
     }
 
     fun addFile(file: File) {
-        val path = IOPath(file, arrayListOf())
-        println("")
+        val watcherEntry = WatcherEntry(file, arrayListOf())
+        Logger.info("Traking new file: ${file.name} (${file.absolutePath})")
     }
 }

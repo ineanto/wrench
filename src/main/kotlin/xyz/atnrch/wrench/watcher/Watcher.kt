@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.scheduler
+package xyz.atnrch.wrench.watcher
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.swing.Swing
