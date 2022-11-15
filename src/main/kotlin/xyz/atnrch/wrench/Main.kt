@@ -7,6 +7,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import xyz.atnrch.wrench.display.WrenchDisplay
+import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.scheduler.Watcher
 
 @Composable
@@ -23,7 +24,12 @@ fun App() {
 }
 
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication, title = "Wrench") {
+    Window(onCloseRequest = {
+        Logger.info("Stopping Wrench...")
+        Logger.info("bye!")
+        ::exitApplication.invoke()
+    }, title = "Wrench") {
+        Logger.info("Starting Wrench...")
         App()
     }
 }

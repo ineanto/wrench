@@ -18,7 +18,6 @@ class Watcher {
             WATCHING = true
             while (WATCHING) {
                 delay(TimeUnit.SECONDS.toMillis(5))
-                println("Hello world!")
             }
         }
     }
