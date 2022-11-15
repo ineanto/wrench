@@ -2,6 +2,7 @@ package xyz.atnrch.wrench.watcher
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.swing.Swing
+import java.nio.file.Files
 import java.util.concurrent.TimeUnit
 
 class Watcher {
@@ -18,6 +19,12 @@ class Watcher {
             WATCHING = true
             while (WATCHING) {
                 delay(TimeUnit.SECONDS.toMillis(5))
+                val manager = WatcherManager()
+                for (entry: WatcherEntry in manager.getEntries()) {
+                    entry.map.forEach {
+                        Files.copy(entry.file.toPath(), it.toAbsolutePath())
+                    }
+                }
             }
         }
     }
