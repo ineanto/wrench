@@ -9,9 +9,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun WrenchFileManagerInput() {
+fun WrenchFileManagerOutput() {
     Box(
-        contentAlignment = Alignment.CenterStart,
+        contentAlignment = Alignment.CenterEnd,
         modifier = Modifier.fillMaxSize(),
     ) {
         Column {

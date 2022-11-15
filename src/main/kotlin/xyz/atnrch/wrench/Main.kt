@@ -8,7 +8,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import xyz.atnrch.wrench.display.WrenchDisplay
 import xyz.atnrch.wrench.logger.Logger
-import xyz.atnrch.wrench.scheduler.Watcher
+import xyz.atnrch.wrench.watcher.Watcher
 
 @Composable
 @Preview
