@@ -2,6 +2,7 @@ package xyz.atnrch.wrench.watcher
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.swing.Swing
+import xyz.atnrch.wrench.logger.Logger
 import java.nio.file.Files
 import java.util.concurrent.TimeUnit
 
@@ -17,6 +18,7 @@ class Watcher {
 
         coroutineScope.launch {
             WATCHING = true
+            Logger.info("Started Watcher.")
             while (WATCHING) {
                 delay(TimeUnit.SECONDS.toMillis(5))
                 val manager = WatcherManager()
@@ -30,6 +32,7 @@ class Watcher {
     }
 
     fun stop() {
+        Logger.info("Stopped Watcher.")
         coroutineScope.cancel()
         coroutineScope = CoroutineScope(Dispatchers.Main)
         WATCHING = false

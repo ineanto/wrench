@@ -4,7 +4,7 @@ import androidx.compose.ui.awt.ComposeWindow
 import java.io.File
 import javax.swing.JFileChooser
 
-fun FilePicker(
+fun createFileChooser(
     onResult: (file: File) -> Unit,
     onNoResult: () -> Unit
 ) {

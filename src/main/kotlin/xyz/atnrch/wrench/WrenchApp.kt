@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import xyz.atnrch.wrench.logger.Logger
-import xyz.atnrch.wrench.scaffold.WrenchScaffold
+import xyz.atnrch.wrench.components.WrenchScaffold
 import javax.swing.UIManager
 
 class WrenchApp {
