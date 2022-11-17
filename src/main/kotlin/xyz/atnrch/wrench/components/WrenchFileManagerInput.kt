@@ -17,7 +17,7 @@ fun WrenchFileManagerInput() {
         modifier = Modifier.fillMaxSize(),
     ) {
         Column(
-            modifier = Modifier.padding(15.dp)
+            modifier = Modifier.padding(96.dp)
         ) {
             Text("Test")
             Text("Test2")

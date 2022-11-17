@@ -22,13 +22,11 @@ import xyz.atnrch.wrench.components.FilePicker
 import xyz.atnrch.wrench.components.WrenchFileManagerInput
 import xyz.atnrch.wrench.components.WrenchFileManagerOutput
 import xyz.atnrch.wrench.logger.Logger
+import xyz.atnrch.wrench.watcher.Watcher
 
 @Composable
-fun WrenchScaffold(
-    onStartButtonClick: () -> Unit,
-    onStopButtonClick: () -> Unit,
-    onAddButtonClick: () -> Unit
-) {
+fun WrenchScaffold() {
+    val watcher = remember { Watcher() }
     var status by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -62,7 +60,7 @@ fun WrenchScaffold(
             // ADD BUTTON (FLOATING)
             //.............
             FloatingActionButton(
-                onClick = {
+                {
                     FilePicker({
                         Logger.info("Path: ${it.absolutePath}")
                     }, {
@@ -94,10 +92,10 @@ fun WrenchScaffold(
                 Button(
                     {
                         status = if (status) {
-                            onStopButtonClick.invoke()
+                            run { watcher.stop() }
                             false
                         } else {
-                            onStartButtonClick.invoke()
+                            run { watcher.start() }
                             true
                         }
                     },
