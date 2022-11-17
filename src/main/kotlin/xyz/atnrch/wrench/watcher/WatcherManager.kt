@@ -9,7 +9,7 @@ class WatcherManager {
     fun addFile(file: File) {
         val watcherEntry = WatcherEntry(file, arrayListOf())
         entries.add(watcherEntry)
-        Logger.info("Traking new file: ${file.name} (${file.absolutePath})")
+        Logger.info("Tracking new file: ${file.name} (${file.absolutePath})")
     }
 
     fun getEntries(): ArrayList<WatcherEntry> {
