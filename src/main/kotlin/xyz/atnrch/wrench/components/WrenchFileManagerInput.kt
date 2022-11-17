@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.display.file
+package xyz.atnrch.wrench.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun WrenchFileManagerOutput() {
+fun WrenchFileManagerInput() {
     Box(
-        contentAlignment = Alignment.CenterEnd,
+        contentAlignment = Alignment.CenterStart,
         modifier = Modifier.fillMaxSize(),
     ) {
         Column(
