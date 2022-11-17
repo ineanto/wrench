@@ -7,13 +7,13 @@ import xyz.atnrch.wrench.watcher.Watcher
 @Composable
 fun WrenchScaffold() {
     val watcher = remember { Watcher() }
-    var state by remember { mutableStateOf(false) }
+    var buttonState by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = { TopBar() },
         floatingActionButton = { AddButton() },
         isFloatingActionButtonDocked = true,
-        bottomBar = { BottomAppBar(watcher, state) { state = it } }
+        bottomBar = { BottomAppBar(watcher, buttonState) { buttonState = it } }
     ) {
         WrenchFileManagerInput()
         WrenchFileManagerOutput()
