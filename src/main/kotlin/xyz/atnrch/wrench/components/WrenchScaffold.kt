@@ -4,20 +4,24 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.awt.ComposeWindow
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.colors.WrenchColors
+import xyz.atnrch.wrench.components.FilePicker
 import xyz.atnrch.wrench.components.WrenchFileManagerInput
 import xyz.atnrch.wrench.components.WrenchFileManagerOutput
-import javax.swing.JFileChooser
+import xyz.atnrch.wrench.logger.Logger
 
 @Composable
 fun WrenchScaffold(
@@ -29,38 +33,49 @@ fun WrenchScaffold(
 
     Scaffold(
         topBar = {
+
             TopAppBar(
                 backgroundColor = WrenchColors.PRIMARY,
                 contentColor = Color.White,
                 elevation = 16.dp,
                 title = { Text("Wrench") },
                 actions = {
+                    //.............
+                    // Debug Button
+                    //.............
                     Button(
-                        onClick = {
-                            val fileChooser = JFileChooser(System.getProperty("user.home")).apply {
-                                fileSelectionMode = JFileChooser.FILES_ONLY
-                                dialogTitle = "Select a file"
-                                approveButtonText = "Select"
-                                approveButtonToolTipText = "Select current directory as save destination"
-                            }
-                            fileChooser.showOpenDialog(ComposeWindow())
-                            val result = fileChooser.selectedFile
-                            println(result)
-                        }
+                        { Logger.debug("Empty.") },
+                        colors = ButtonDefaults.buttonColors(WrenchColors.STRESS, Color.White),
+                        shape = RectangleShape
                     ) {
-                        Text("DEBUG")
+                        Icon(
+                            Icons.Filled.Settings,
+                            tint = Color.White,
+                            contentDescription = "Debug Settings",
+                            modifier = Modifier.size(18.dp)
+                        )
                     }
+                    Spacer(Modifier.width(10.dp))
                 })
         },
         floatingActionButton = {
+            //.............
+            // ADD BUTTON (FLOATING)
+            //.............
             FloatingActionButton(
-                onClick = { /* ... */ },
-                backgroundColor = WrenchColors.LIGHT
+                onClick = {
+                    FilePicker({
+                        Logger.info("Path: ${it.absolutePath}")
+                    }, {
+                        Logger.info("No file selected.")
+                    })
+                },
+                backgroundColor = WrenchColors.LIGHT,
             ) {
                 Icon(
                     Icons.Filled.Add,
                     tint = Color.White,
-                    contentDescription = "Start",
+                    contentDescription = "Add file...",
                     modifier = Modifier.size(28.dp)
                 )
             }
@@ -73,6 +88,9 @@ fun WrenchScaffold(
                 ),
                 backgroundColor = WrenchColors.PRIMARY
             ) {
+                //.............
+                // START BUTTON
+                //.............
                 Spacer(Modifier.width(5.dp))
                 Button(
                     {
@@ -85,7 +103,9 @@ fun WrenchScaffold(
                         }
                     },
                     colors = ButtonDefaults.buttonColors(WrenchColors.LIGHT, Color.White),
-                    contentPadding = ButtonDefaults.ContentPadding
+                    contentPadding = ButtonDefaults.ContentPadding,
+                    shape = RoundedCornerShape(100),
+                    modifier = Modifier.shadow(15.dp, RoundedCornerShape(100), false)
                 ) {
                     if (status) Icon(
                         Icons.Filled.Close,
