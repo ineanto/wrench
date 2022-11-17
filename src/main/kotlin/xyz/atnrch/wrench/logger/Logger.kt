@@ -5,7 +5,7 @@ import xyz.atnrch.wrench.WrenchApp
 class Logger {
     companion object {
         private fun log(level: Level, log: String) {
-            println("${WrenchApp.PREFIX} - ${level.getName()} - $log")
+            println("${WrenchApp.PREFIX} ${level.getName()} - $log")
         }
 
         fun debug(log: String) {
