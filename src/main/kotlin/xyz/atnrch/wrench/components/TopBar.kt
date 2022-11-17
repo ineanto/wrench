@@ -8,6 +8,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
@@ -28,7 +29,8 @@ fun TopBar() {
             Button(
                 { Logger.debug("Empty.") },
                 colors = ButtonDefaults.buttonColors(WrenchColors.STRESS, Color.White),
-                shape = RectangleShape
+                shape = RectangleShape,
+                modifier = Modifier.shadow(20.dp, RectangleShape, true)
             ) {
                 Icon(
                     Icons.Filled.Settings,

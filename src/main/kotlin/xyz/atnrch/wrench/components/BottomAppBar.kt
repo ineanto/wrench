@@ -3,6 +3,9 @@ package xyz.atnrch.wrench.components
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.colors.WrenchColors
 import xyz.atnrch.wrench.watcher.Watcher
 
@@ -16,6 +19,7 @@ fun BottomAppBar(
         cutoutShape = MaterialTheme.shapes.small.copy(
             CornerSize(percent = 50)
         ),
-        backgroundColor = WrenchColors.PRIMARY
+        backgroundColor = WrenchColors.PRIMARY,
+        modifier = Modifier.shadow(20.dp, MaterialTheme.shapes.small, true)
     ) { BottomRow(watcher, state, onStateChange) }
 }
