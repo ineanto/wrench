@@ -33,7 +33,6 @@ fun WrenchScaffold(
 
     Scaffold(
         topBar = {
-
             TopAppBar(
                 backgroundColor = WrenchColors.PRIMARY,
                 contentColor = Color.White,
