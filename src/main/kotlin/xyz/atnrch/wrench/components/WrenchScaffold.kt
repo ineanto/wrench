@@ -3,20 +3,21 @@ package xyz.atnrch.wrench.components
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import xyz.atnrch.wrench.watcher.Watcher
+import xyz.atnrch.wrench.watcher.WatcherEntry
+import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
 fun WrenchScaffold() {
-    val watcher = remember { Watcher() }
+    val entries: MutableList<WatcherEntry> = remember { mutableStateListOf() }
+    val watcher = remember { Watcher(entries) }
+    val watcherManager = remember { WatcherManager(entries) }
     var buttonState by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = { TopBar() },
-        floatingActionButton = { AddButton() },
+        floatingActionButton = { AddButton(watcherManager) },
         isFloatingActionButtonDocked = true,
         bottomBar = { BottomAppBar(watcher, buttonState) { buttonState = it } }
-    ) {
-        WrenchFileManagerInput()
-        WrenchFileManagerOutput()
-    }
+    ) { WatcherDisplay(watcherManager) }
 
 }

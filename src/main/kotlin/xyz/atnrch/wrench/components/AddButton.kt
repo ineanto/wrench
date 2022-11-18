@@ -11,9 +11,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.colors.WrenchColors
 import xyz.atnrch.wrench.logger.Logger
+import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
-fun AddButton() {
+fun AddButton(
+    watcherManager: WatcherManager
+) {
     //.............
     // ADD BUTTON (FLOATING)
     //.............
@@ -21,6 +24,7 @@ fun AddButton() {
         {
             createFileChooser({
                 Logger.info("Path: ${it.absolutePath}")
+                watcherManager.addFile(it)
             }, {
                 Logger.info("No file selected.")
             })
