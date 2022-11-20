@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.colors.WrenchColors
 import xyz.atnrch.wrench.logger.Logger
+import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
@@ -29,11 +29,11 @@ fun AddButton(
                 Logger.info("No file selected.")
             })
         },
-        backgroundColor = WrenchColors.LIGHT,
+        backgroundColor = UIColors.LIGHT,
     ) {
         Icon(
             Icons.Filled.Add,
-            tint = Color.White,
+            tint = Color.Green,
             contentDescription = "Add file...",
             modifier = Modifier.size(28.dp)
         )

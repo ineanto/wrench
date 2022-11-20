@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.components.debug.DummyTextEntry
+import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 
 @OptIn(ExperimentalUnitApi::class)
@@ -19,26 +20,34 @@ fun WatcherDisplay(
     watcherManager: WatcherManager
 ) {
     var selectedFile = remember { mutableStateOf("") }
-    Column {
-        Box(
-            contentAlignment = Alignment.CenterStart,
-            modifier = Modifier.fillMaxSize(50F).border(BorderStroke(8.dp, Color.Black), RectangleShape),
+
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .fillMaxWidth(0.5f)
+            .fillMaxHeight(1f)
+            .border(BorderStroke(4.dp, Color.Black), RectangleShape),
+    ) {
+        Column(
+            modifier = Modifier.padding(24.dp)
         ) {
-            Column(
-                modifier = Modifier.padding(24.dp)
-            ) {
-                //.............
-                // INPUT SIDE
-                //.............
-                watcherManager.getEntries().forEach {
-                    WatcherTextEntry(it)
-                }
-                DummyTextEntry()
+            //.............
+            // INPUT SIDE
+            //.............
+            watcherManager.getEntries().forEach {
+                WatcherTextEntry(it)
             }
+            DummyTextEntry()
         }
+    }
+
+    Box {
         Box(
-            contentAlignment = Alignment.CenterEnd,
-            modifier = Modifier.fillMaxSize(50F),
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .fillMaxWidth(0.5f)
+                .fillMaxHeight(1f)
+                .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape),
         ) {
             Column(
                 modifier = Modifier.padding(24.dp)
@@ -46,6 +55,7 @@ fun WatcherDisplay(
                 //.............
                 // OUTPUT SIDE
                 //.............
+                DummyTextEntry()
             }
         }
     }

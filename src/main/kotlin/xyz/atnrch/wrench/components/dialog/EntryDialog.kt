@@ -12,7 +12,6 @@ import androidx.compose.ui.window.Dialog
 
 @Composable
 fun EntryDialog(
-    onCancelClick: () -> Unit,
     onStateChange: (state: Boolean) -> Unit
 ) {
     Dialog(
@@ -29,7 +28,7 @@ fun EntryDialog(
                 modifier = Modifier.fillMaxWidth()
             ) {
 
-                TextButton(onClick = onCancelClick) {
+                TextButton(onClick = { onStateChange(false) }) {
                     Text(text = "Cancel")
                 }
                 Spacer(modifier = Modifier.width(4.dp))

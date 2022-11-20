@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.colors.WrenchColors
+import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 
 @Composable
@@ -38,18 +38,19 @@ fun BottomRow(
                 onStateChange(true)
             }
         },
-        colors = ButtonDefaults.buttonColors(WrenchColors.LIGHT, Color.White),
+        colors = ButtonDefaults.buttonColors(UIColors.LIGHT, Color.White),
         contentPadding = ButtonDefaults.ContentPadding,
         shape = RoundedCornerShape(100),
         modifier = Modifier.shadow(15.dp, RoundedCornerShape(100), false)
     ) {
         if (state) Icon(
             Icons.Filled.Close,
+            tint = UIColors.STRESS,
             contentDescription = "Stop",
             modifier = Modifier.size(28.dp)
         ) else Icon(
             Icons.Filled.PlayArrow,
-            tint = Color.White,
+            tint = Color.Green,
             contentDescription = "Start",
             modifier = Modifier.size(28.dp)
         )
