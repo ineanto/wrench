@@ -50,7 +50,7 @@ fun BottomRow(
             modifier = Modifier.size(28.dp)
         ) else Icon(
             Icons.Filled.PlayArrow,
-            tint = Color.Green,
+            tint = UIColors.GREEN,
             contentDescription = "Start",
             modifier = Modifier.size(28.dp)
         )

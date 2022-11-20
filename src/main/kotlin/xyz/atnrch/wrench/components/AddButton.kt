@@ -7,7 +7,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.ui.UIColors
@@ -33,7 +32,7 @@ fun AddButton(
     ) {
         Icon(
             Icons.Filled.Add,
-            tint = Color.Green,
+            tint = UIColors.GREEN,
             contentDescription = "Add file...",
             modifier = Modifier.size(28.dp)
         )
