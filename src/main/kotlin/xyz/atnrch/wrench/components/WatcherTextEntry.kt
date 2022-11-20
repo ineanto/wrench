@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import xyz.atnrch.wrench.components.dialog.EntryDialog
+import xyz.atnrch.wrench.ui.Fonts
 import xyz.atnrch.wrench.watcher.WatcherEntry
 
 @OptIn(ExperimentalUnitApi::class)
@@ -22,7 +23,8 @@ fun WatcherTextEntry(entry: WatcherEntry) {
         text = "${entry.file.absolutePath}",
         style = TextStyle(
             color = Color.Black,
-            fontSize = TextUnit(15F, TextUnitType.Sp)
+            fontSize = TextUnit(15F, TextUnitType.Sp),
+            fontFamily = Fonts.JOST_LIGHT_ITALIC
         ),
         modifier = Modifier.clickable {
             dialogState = true
@@ -30,12 +32,6 @@ fun WatcherTextEntry(entry: WatcherEntry) {
     )
 
     if (dialogState) {
-        EntryDialog(
-            onCancelClick = {
-                dialogState = false
-                println("clicked cancel")
-            },
-            onStateChange = { dialogState = it }
-        )
+        EntryDialog(onStateChange = { dialogState = it })
     }
 }
