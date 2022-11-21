@@ -22,7 +22,7 @@ fun WatcherDisplay(
 
     Row(
         horizontalArrangement = Arrangement.SpaceEvenly
-    ){
+    ) {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
@@ -42,21 +42,19 @@ fun WatcherDisplay(
             }
         }
 
-        Box {
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .padding(PaddingValues(0.dp, 0.dp, 0.dp, 55.dp))
-                    .fillMaxHeight()
-                    .fillMaxWidth(1f)
-                    .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape)
-            ) {
-                Column {
-                    //.............
-                    // OUTPUT SIDE
-                    //.............
-                    DummyTextEntry()
-                }
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .padding(PaddingValues(0.dp, 0.dp, 0.dp, 55.dp))
+                .fillMaxHeight()
+                .fillMaxWidth(1f)
+                .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape)
+        ) {
+            Column {
+                //.............
+                // OUTPUT SIDE
+                //.............
+                DummyTextEntry()
             }
         }
     }
