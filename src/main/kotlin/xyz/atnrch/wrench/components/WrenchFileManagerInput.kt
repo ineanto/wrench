@@ -47,6 +47,7 @@ fun WatcherDisplay(
             modifier = Modifier
                 .padding(PaddingValues(0.dp, 0.dp, 0.dp, 55.dp))
                 .fillMaxHeight()
+                .fillMaxWidth(1f)
                 .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape)
         ) {
             Column {
