@@ -34,9 +34,11 @@ fun BottomRow(
     Button(
         {
             if (state) {
+                buttonColors[0] = UIColors.WATCHER_START_BG
                 run { watcher.stop() }
                 onStateChange(false)
             } else {
+                buttonColors[0] = UIColors.WATCHER_STOP_BG
                 run { watcher.start() }
                 onStateChange(true)
             }
@@ -47,7 +49,6 @@ fun BottomRow(
         modifier = Modifier.shadow(15.dp, RoundedCornerShape(100), false)
     ) {
         if (state) {
-            buttonColors[0] = UIColors.WATCHER_STOP_BG
             Icon(
                 Icons.Filled.Close,
                 tint = UIColors.WATCHER_STOP_FG,
@@ -55,7 +56,6 @@ fun BottomRow(
                 modifier = Modifier.size(28.dp)
             )
         } else {
-            buttonColors[0] = UIColors.WATCHER_START_BG
             Icon(
                 Icons.Filled.PlayArrow,
                 tint = UIColors.WATCHER_START_FG,
