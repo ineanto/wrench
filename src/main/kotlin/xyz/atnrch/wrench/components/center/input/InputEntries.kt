@@ -26,7 +26,9 @@ fun InputEntries(
             .border(BorderStroke(4.dp, UIColors.ORANGE), RectangleShape)
     ) {
         InputTopText()
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(15.dp)
+        ) {
             watcherManager.getEntries().forEach {
                 WatcherTextEntry(it)
             }

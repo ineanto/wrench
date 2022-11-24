@@ -22,7 +22,9 @@ fun OutputEntries() {
             .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape)
     ) {
         OutputTopText()
-        Column {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(15.dp)
+        ) {
             for (i in 0..5) {
                 DummyTextEntry()
             }
