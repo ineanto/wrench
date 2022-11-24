@@ -10,6 +10,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
+import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.components.dialog.EntryDialog
 import xyz.atnrch.wrench.ui.Fonts
 import xyz.atnrch.wrench.watcher.WatcherEntry
@@ -24,12 +25,13 @@ fun WatcherTextEntry(entry: WatcherEntry) {
         style = TextStyle(
             color = Color.Black,
             fontSize = TextUnit(15F, TextUnitType.Sp),
-            fontFamily = Fonts.JOST_LIGHT_ITALIC
+            fontFamily = Fonts.ROBOTO_REGULAR
         ),
         modifier = Modifier.clickable {
             dialogState = true
         }
     )
+    Spacer(Modifier.height(15.dp))
 
     if (dialogState) {
         EntryDialog(onStateChange = { dialogState = it })
