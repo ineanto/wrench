@@ -17,9 +17,6 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 fun AddButton(
     watcherManager: WatcherManager
 ) {
-    //.............
-    // ADD BUTTON (FLOATING)
-    //.............
     FloatingActionButton(
         {
             createFileChooser({

@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.components.dialog.EntryDialog
+import xyz.atnrch.wrench.components.center.dialog.EntryDialog
 import xyz.atnrch.wrench.ui.Fonts
 import xyz.atnrch.wrench.watcher.WatcherEntry
 

@@ -27,9 +27,6 @@ fun BottomRow(
 ) {
     val buttonColors = remember { arrayOf(UIColors.WATCHER_START_BG) }
 
-    //.............
-    // START BUTTON
-    //.............
     Spacer(Modifier.width(5.dp))
     Button(
         {

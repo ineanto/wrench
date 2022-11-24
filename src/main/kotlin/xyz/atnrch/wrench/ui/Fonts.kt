@@ -15,27 +15,19 @@ class Fonts {
             )
         )
 
-        val JOST_BOLD: FontFamily = FontFamily(
+        val ROBOTO_MEDIUM: FontFamily = FontFamily(
             Font(
-                resource = "font/Jost-Bold.ttf",
+                resource = "font/Roboto-Medium.ttf",
                 style = FontStyle.Normal,
-                weight = FontWeight.Bold
-            )
-        )
-
-        val JOST_MEDIUM_ITALIC: FontFamily = FontFamily(
-            Font(
-                resource = "font/Jost-MediumItalic.ttf",
-                style = FontStyle.Italic,
                 weight = FontWeight.Medium
             )
         )
 
-        val JOST_LIGHT_ITALIC: FontFamily = FontFamily(
+        val ROBOTO_REGULAR: FontFamily = FontFamily(
             Font(
-                resource = "font/Jost-LightItalic.ttf",
-                style = FontStyle.Italic,
-                weight = FontWeight.Light
+                resource = "font/Roboto-Regular.ttf",
+                style = FontStyle.Normal,
+                weight = FontWeight.Medium
             )
         )
     }

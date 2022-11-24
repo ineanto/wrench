@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.input
+package xyz.atnrch.wrench.components.center.input
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.ButtonDefaults
