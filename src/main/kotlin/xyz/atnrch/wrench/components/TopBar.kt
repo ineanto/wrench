@@ -1,12 +1,13 @@
 package xyz.atnrch.wrench.components
 
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -27,8 +28,8 @@ fun TopBar() {
             Icon(
                 Icons.Filled.Build,
                 tint = Color.White,
-                contentDescription = "Debug Settings",
-                modifier = Modifier.size(18.dp)
+                contentDescription = "Wrench Icon",
+                modifier = Modifier.size(24.dp)
             )
             Spacer(Modifier.width(5.dp))
             Text(
@@ -44,13 +45,15 @@ fun TopBar() {
                 { Logger.debug("Empty.") },
                 colors = ButtonDefaults.buttonColors(UIColors.STRESS, Color.White),
                 shape = RectangleShape,
-                modifier = Modifier.shadow(20.dp, RectangleShape, true)
+                modifier = Modifier
+                    .width(50.dp)
+                    .shadow(20.dp, RectangleShape, true)
             ) {
                 Icon(
-                    Icons.Filled.Settings,
+                    Icons.Filled.Star,
                     tint = Color.White,
                     contentDescription = "Debug Settings",
-                    modifier = Modifier.size(18.dp)
+                    modifier = Modifier.size(24.dp).fillMaxSize()
                 )
             }
             Spacer(Modifier.width(10.dp))
