@@ -21,6 +21,7 @@ fun OutputEntries() {
             .fillMaxWidth()
             .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape)
     ) {
+        OutputTopText()
         Column {
             for (i in 0..5) {
                 DummyTextEntry()
