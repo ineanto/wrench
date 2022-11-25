@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.components.WatcherTextEntry
-import xyz.atnrch.wrench.components.debug.DummyTextEntry
+import xyz.atnrch.wrench.registery.RegisterComposable
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 
@@ -30,10 +30,7 @@ fun InputEntries(
             verticalArrangement = Arrangement.spacedBy(15.dp)
         ) {
             watcherManager.getEntries().forEach {
-                WatcherTextEntry(it)
-            }
-            for (i in 0..5) {
-                DummyTextEntry()
+                RegisterComposable(it.key) { WatcherTextEntry(it.key, it.value, watcherManager) }
             }
         }
     }

@@ -8,7 +8,7 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
 fun WrenchScaffold() {
-    val entries: MutableList<WatcherEntry> = remember { mutableStateListOf() }
+    val entries: MutableMap<Int, WatcherEntry> = remember { mutableStateMapOf() }
     val watcher = remember { Watcher(entries) }
     val watcherManager = remember { WatcherManager(entries) }
     var buttonState by remember { mutableStateOf(false) }

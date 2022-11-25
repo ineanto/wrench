@@ -3,14 +3,21 @@ package xyz.atnrch.wrench.watcher
 import xyz.atnrch.wrench.logger.Logger
 import java.io.File
 
-class WatcherManager(private val entries: MutableList<WatcherEntry>) {
+class WatcherManager(private val entries: MutableMap<Int, WatcherEntry>) {
+    private var currentId: Int = -1
+
     fun addFile(file: File) {
         val watcherEntry = WatcherEntry(file, arrayListOf())
-        entries.add(watcherEntry)
-        Logger.info("Tracking new file: ${file.name} (${file.absolutePath})")
+        currentId += 1
+        entries[currentId] = (watcherEntry)
+        Logger.info("Tracking new file:\n ID: $currentId\n Name: ${file.name}\n Path: ${file.absolutePath}")
     }
 
-    fun getEntries(): MutableList<WatcherEntry> {
+    fun getEntries(): MutableMap<Int, WatcherEntry> {
         return entries
+    }
+
+    fun getFromId(id: Int): WatcherEntry? {
+        return entries[id]
     }
 }

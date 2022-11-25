@@ -11,12 +11,14 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import xyz.atnrch.wrench.components.center.dialog.EntryDialog
+import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
 import xyz.atnrch.wrench.ui.Fonts
 import xyz.atnrch.wrench.watcher.WatcherEntry
+import xyz.atnrch.wrench.watcher.WatcherManager
 
 @OptIn(ExperimentalUnitApi::class)
 @Composable
-fun WatcherTextEntry(entry: WatcherEntry) {
+fun WatcherTextEntry(id: Int, entry: WatcherEntry, watcherManager: WatcherManager) {
     var dialogState by remember { mutableStateOf(false) }
 
     Text(
@@ -28,6 +30,8 @@ fun WatcherTextEntry(entry: WatcherEntry) {
         ),
         modifier = Modifier.clickable {
             dialogState = true
+            ACTIVE_COMPOSABLE = id
+            println("PATH IS ${watcherManager.getFromId(ACTIVE_COMPOSABLE)!!.file.path}")
         }
     )
 

@@ -8,11 +8,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.components.debug.DummyTextEntry
+import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
 import xyz.atnrch.wrench.ui.UIColors
+import xyz.atnrch.wrench.watcher.WatcherEntry
+import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
-fun OutputEntries() {
+fun OutputEntries(watcherManager: WatcherManager) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -25,9 +27,7 @@ fun OutputEntries() {
         Column(
             verticalArrangement = Arrangement.spacedBy(15.dp)
         ) {
-            for (i in 0..5) {
-                DummyTextEntry()
-            }
+            val entry: WatcherEntry? = watcherManager.getFromId(ACTIVE_COMPOSABLE)
         }
     }
 }
