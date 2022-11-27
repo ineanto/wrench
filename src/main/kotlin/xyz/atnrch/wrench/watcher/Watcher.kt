@@ -3,7 +3,6 @@ package xyz.atnrch.wrench.watcher
 import kotlinx.coroutines.*
 import kotlinx.coroutines.swing.Swing
 import xyz.atnrch.wrench.logger.Logger
-import java.nio.file.Files
 import java.util.concurrent.TimeUnit
 
 class Watcher(private val watcherManager: WatcherManager) {
@@ -14,7 +13,7 @@ class Watcher(private val watcherManager: WatcherManager) {
     private var coroutineScope = CoroutineScope(Dispatchers.Swing)
 
     fun start() {
-        if(WATCHING) return
+        if (WATCHING) return
 
         coroutineScope.launch {
             WATCHING = true
@@ -23,7 +22,7 @@ class Watcher(private val watcherManager: WatcherManager) {
                 delay(TimeUnit.SECONDS.toMillis(5))
                 for (entry: WatcherEntry in watcherManager.getEntries().values) {
                     entry.map.forEach {
-                        Files.copy(entry.file.toPath(), it.toAbsolutePath())
+                        //Files.copy(entry.file.toPath(), it.toAbsolutePath())
                     }
                 }
             }
