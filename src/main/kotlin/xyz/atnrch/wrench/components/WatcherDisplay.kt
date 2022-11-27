@@ -1,6 +1,5 @@
 package xyz.atnrch.wrench.components
 
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -19,7 +18,6 @@ fun WatcherDisplay(
     watcherManager: WatcherManager
 ) {
     var currentClick by remember { mutableStateOf(-1) }
-    val interactionSource = remember { MutableInteractionSource() }
 
     Row {
         if (watcherManager.getEntries().isEmpty()) {
@@ -31,7 +29,7 @@ fun WatcherDisplay(
                 Text("Add a file to start...")
             }
         } else {
-            InputEntries(watcherManager, interactionSource) { currentClick = it }
+            InputEntries(watcherManager) { currentClick = it }
             OutputEntries(watcherManager, currentClick)
         }
     }

@@ -6,7 +6,7 @@ import xyz.atnrch.wrench.logger.Logger
 import java.nio.file.Files
 import java.util.concurrent.TimeUnit
 
-class Watcher(private val entries: MutableMap<Int, WatcherEntry>) {
+class Watcher(private val watcherManager: WatcherManager) {
     companion object {
         var WATCHING = false
     }
@@ -21,8 +21,7 @@ class Watcher(private val entries: MutableMap<Int, WatcherEntry>) {
             Logger.info("Started Watcher.")
             while (WATCHING) {
                 delay(TimeUnit.SECONDS.toMillis(5))
-                val manager = WatcherManager(entries)
-                for (entry: WatcherEntry in manager.getEntries().values) {
+                for (entry: WatcherEntry in watcherManager.getEntries().values) {
                     entry.map.forEach {
                         Files.copy(entry.file.toPath(), it.toAbsolutePath())
                     }

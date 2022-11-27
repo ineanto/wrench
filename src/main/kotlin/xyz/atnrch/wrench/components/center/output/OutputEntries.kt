@@ -9,6 +9,8 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PostAdd
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,6 +21,7 @@ import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
+import java.nio.file.Path
 import kotlin.io.path.pathString
 
 @Composable
@@ -26,6 +29,8 @@ fun OutputEntries(
     watcherManager: WatcherManager,
     currentSelectedInputId: Int
 ) {
+    val outputs: MutableList<Path> = remember { mutableStateListOf() }
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -40,39 +45,41 @@ fun OutputEntries(
         ) {
             val entry: WatcherEntry? = watcherManager.getFromId(currentSelectedInputId)
             if (entry != null) {
-                if (entry.map.isEmpty()) {
-                    Box(
-                        contentAlignment = Alignment.Center
+                outputs.clear()
+                outputs.addAll(entry.map)
+
+                Box(
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(
+                        verticalArrangement = Arrangement.SpaceEvenly,
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Column(
-                            verticalArrangement = Arrangement.SpaceEvenly,
-                            horizontalAlignment = Alignment.CenterHorizontally
+                        if (outputs.isEmpty()) {
+                            Text("No outputs.")
+                        } else {
+                            outputs.forEach {
+                                Text(it.pathString)
+                            }
+                        }
+                        Spacer(Modifier.height(24.dp))
+                        Button(
+                            onClick = {
+                                showDirectoryPicker({
+                                    Logger.info("Path: ${it.absolutePath}")
+                                    entry.map.add(it.toPath())
+                                    outputs.add(it.toPath())
+                                }, {
+                                    Logger.info("No file selected.")
+                                })
+                            }
                         ) {
-                            if (entry.map.isEmpty()) {
-                                Text("No output")
-                            } else {
-                                entry.map.forEach {
-                                    Text(it.pathString)
-                                }
-                            }
-                            Spacer(Modifier.height(28.dp))
-                            Button(
-                                onClick = {
-                                    showDirectoryPicker({
-                                        Logger.info("Path: ${it.absolutePath}")
-                                        entry.map.add(it.toPath())
-                                    }, {
-                                        Logger.info("No file selected.")
-                                    })
-                                }
-                            ) {
-                                Icon(
-                                    Icons.Filled.PostAdd,
-                                    tint = Color.White,
-                                    contentDescription = "Add",
-                                    modifier = Modifier.size(28.dp)
-                                )
-                            }
+                            Icon(
+                                Icons.Filled.PostAdd,
+                                tint = Color.White,
+                                contentDescription = "Add",
+                                modifier = Modifier.size(28.dp)
+                            )
                         }
                     }
                 }

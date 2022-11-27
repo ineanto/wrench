@@ -2,7 +2,6 @@ package xyz.atnrch.wrench.components.center.input
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,7 +16,6 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 @Composable
 fun InputEntries(
     watcherManager: WatcherManager,
-    interactionSource: MutableInteractionSource,
     onEntryClick: (id: Int) -> Unit
 ) {
     Box(
@@ -38,8 +36,7 @@ fun InputEntries(
                         it.key,
                         it.value,
                         watcherManager,
-                        onEntryClick,
-                        interactionSource
+                        onEntryClick
                     )
                 }
             }

@@ -2,7 +2,6 @@ package xyz.atnrch.wrench.components.center
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.PointerMatcher
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.onClick
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -25,13 +24,12 @@ fun WatcherTextEntry(
     id: Int,
     entry: WatcherEntry,
     watcherManager: WatcherManager,
-    onEntrySelected: (id: Int) -> Unit,
-    interactionSource: MutableInteractionSource,
+    onEntrySelected: (id: Int) -> Unit
 ) {
     var dialogState by remember { mutableStateOf(false) }
 
     Text(
-        text = "${entry.file.absolutePath}",
+        text = entry.file.absolutePath,
         style = TextStyle(
             color = if(ACTIVE_COMPOSABLE == id) Color.Red else Color.Black,
             fontSize = TextUnit(15F, TextUnitType.Sp),
@@ -40,7 +38,6 @@ fun WatcherTextEntry(
         modifier = Modifier
             .onClick(
                 matcher = PointerMatcher.mouse(PointerButton.Primary),
-                interactionSource = interactionSource,
                 onClick = {
                     println("Active composable ID was $ACTIVE_COMPOSABLE")
                     ACTIVE_COMPOSABLE = id
