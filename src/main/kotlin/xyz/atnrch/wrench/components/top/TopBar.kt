@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components
+package xyz.atnrch.wrench.components.top
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize

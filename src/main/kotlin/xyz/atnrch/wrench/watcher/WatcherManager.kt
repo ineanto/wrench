@@ -9,7 +9,7 @@ class WatcherManager(private val entries: MutableMap<Int, WatcherEntry>) {
     fun addFile(file: File) {
         val watcherEntry = WatcherEntry(file, arrayListOf())
         currentId += 1
-        entries[currentId] = (watcherEntry)
+        entries[currentId] = watcherEntry
         Logger.info("Tracking new file:\n ID: $currentId\n Name: ${file.name}\n Path: ${file.absolutePath}")
     }
 
@@ -18,6 +18,9 @@ class WatcherManager(private val entries: MutableMap<Int, WatcherEntry>) {
     }
 
     fun getFromId(id: Int): WatcherEntry? {
+        if (id == -1) {
+            return null
+        }
         return entries[id]
     }
 }

@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components
+package xyz.atnrch.wrench.components.center
 
 import androidx.compose.ui.awt.ComposeWindow
 import java.io.File

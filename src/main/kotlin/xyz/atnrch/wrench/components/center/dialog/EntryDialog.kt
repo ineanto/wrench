@@ -3,6 +3,7 @@ package xyz.atnrch.wrench.components.center.dialog
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -59,12 +60,19 @@ fun EntryDialog(
                     modifier = Modifier.size(45.dp)
                 )
                 Spacer(Modifier.width(75.dp))
-                Icon(
-                    Icons.Filled.Settings,
-                    tint = Color.Black,
-                    contentDescription = "Entry Settings...",
-                    modifier = Modifier.size(45.dp)
-                )
+                Button(
+                    onClick = {
+
+                    },
+                    shape = CircleShape
+                ) {
+                    Icon(
+                        Icons.Filled.Settings,
+                        tint = Color.Black,
+                        contentDescription = "Entry Settings...",
+                        modifier = Modifier.size(45.dp)
+                    )
+                }
             }
         }
 

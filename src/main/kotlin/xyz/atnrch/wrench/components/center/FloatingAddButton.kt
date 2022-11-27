@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components
+package xyz.atnrch.wrench.components.center
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.FloatingActionButton
