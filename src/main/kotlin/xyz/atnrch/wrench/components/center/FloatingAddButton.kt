@@ -19,7 +19,7 @@ fun AddButton(
 ) {
     FloatingActionButton(
         {
-            createFileChooser({
+            showFilePicker({
                 Logger.info("Path: ${it.absolutePath}")
                 watcherManager.addFile(it)
             }, {

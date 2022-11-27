@@ -14,9 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
+import xyz.atnrch.wrench.components.center.showDirectoryPicker
+import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
+import kotlin.io.path.pathString
 
 @Composable
 fun OutputEntries(
@@ -41,17 +44,26 @@ fun OutputEntries(
                     Box(
                         contentAlignment = Alignment.Center
                     ) {
-                        Column (
+                        Column(
                             verticalArrangement = Arrangement.SpaceEvenly,
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Text("No output")
-                            Spacer(Modifier.height(28.dp))
-                            Text("CURRENT SELECTED FILE IS: ${entry.file.absolutePath}")
+                            if (entry.map.isEmpty()) {
+                                Text("No output")
+                            } else {
+                                entry.map.forEach {
+                                    Text(it.pathString)
+                                }
+                            }
                             Spacer(Modifier.height(28.dp))
                             Button(
                                 onClick = {
-                                    println("test")
+                                    showDirectoryPicker({
+                                        Logger.info("Path: ${it.absolutePath}")
+                                        entry.map.add(it.toPath())
+                                    }, {
+                                        Logger.info("No file selected.")
+                                    })
                                 }
                             ) {
                                 Icon(
