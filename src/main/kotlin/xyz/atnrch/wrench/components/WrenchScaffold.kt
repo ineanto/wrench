@@ -3,8 +3,12 @@ package xyz.atnrch.wrench.components
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.*
-import xyz.atnrch.wrench.components.center.AddButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import xyz.atnrch.wrench.components.bottom.BottomAppBar
+import xyz.atnrch.wrench.components.bottom.FloatingButton
 import xyz.atnrch.wrench.components.top.TopBar
 import xyz.atnrch.wrench.compose.SnackBarDataHolder
 import xyz.atnrch.wrench.watcher.Watcher
@@ -18,14 +22,12 @@ fun WrenchScaffold() {
     val snackBarDataHolder = SnackBarDataHolder(scaffoldState, rememberCoroutineScope())
     val watcherManager = remember { WatcherManager(entries) }
     val watcher = remember { Watcher(watcherManager, snackBarDataHolder) }
-    var watcherState by remember { mutableStateOf(false) }
 
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar() },
-        floatingActionButton = { AddButton(watcherManager) },
+        floatingActionButton = { FloatingButton(watcherManager) },
         isFloatingActionButtonDocked = true,
-        bottomBar = { BottomAppBar(watcher, watcherState, snackBarDataHolder) { watcherState = it } }
+        bottomBar = { BottomAppBar(watcher) }
     ) { WatcherDisplay(watcherManager) }
-
 }
