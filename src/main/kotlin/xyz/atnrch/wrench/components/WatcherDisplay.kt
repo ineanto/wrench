@@ -11,17 +11,14 @@ import androidx.compose.ui.Modifier
 import xyz.atnrch.wrench.components.center.input.InputEntries
 import xyz.atnrch.wrench.components.center.output.OutputEntries
 import xyz.atnrch.wrench.watcher.WatcherManager
-import java.io.File
 
 @Composable
-fun WatcherDisplay(
-    watcherManager: WatcherManager
-) {
+fun WatcherDisplay(watcherManager: WatcherManager) {
     var currentClick by remember { mutableStateOf(-1) }
 
     Row {
         if (watcherManager.getEntries().isEmpty()) {
-            watcherManager.addFile(File("/home/aro/IdeaProjects/Wrench/dummy"))
+            //watcherManager.addFile(File("/home/aro/IdeaProjects/Wrench/dummy"))
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.fillMaxWidth().fillMaxHeight()

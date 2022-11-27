@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
+import xyz.atnrch.wrench.compose.SnackBarDataHolder
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 
@@ -13,6 +14,7 @@ import xyz.atnrch.wrench.watcher.Watcher
 fun BottomAppBar(
     watcher: Watcher,
     state: Boolean,
+    snackBarDataHolder: SnackBarDataHolder,
     onStateChange: (state: Boolean) -> Unit
 ) {
     androidx.compose.material.BottomAppBar(
@@ -21,5 +23,5 @@ fun BottomAppBar(
         ),
         backgroundColor = UIColors.PRIMARY,
         modifier = Modifier.shadow(20.dp, MaterialTheme.shapes.small, true)
-    ) { BottomRow(watcher, state, onStateChange) }
+    ) { BottomRow(watcher, state, onStateChange, snackBarDataHolder) }
 }

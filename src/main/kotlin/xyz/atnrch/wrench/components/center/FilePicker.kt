@@ -1,6 +1,5 @@
 package xyz.atnrch.wrench.components.center
 
-import androidx.compose.ui.awt.ComposeWindow
 import java.io.File
 import javax.swing.JFileChooser
 
@@ -14,7 +13,7 @@ fun showFilePicker(
         approveButtonText = "Confirm"
         approveButtonToolTipText = "Select source file"
     }
-    filePicker.showOpenDialog(ComposeWindow())
+    filePicker.showOpenDialog(null)
     if (filePicker.selectedFile != null) onResult.invoke(filePicker.selectedFile) else onNoResult.invoke()
 }
 
@@ -26,8 +25,8 @@ fun showDirectoryPicker(
         fileSelectionMode = JFileChooser.DIRECTORIES_ONLY
         dialogTitle = "Select a directory"
         approveButtonText = "Confirm"
-        approveButtonToolTipText = "Select source file"
+        approveButtonToolTipText = "Select output directory"
     }
-    filePicker.showOpenDialog(ComposeWindow())
+    filePicker.showOpenDialog(null)
     if (filePicker.selectedFile != null) onResult.invoke(filePicker.selectedFile) else onNoResult.invoke()
 }
