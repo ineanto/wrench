@@ -16,7 +16,6 @@ fun DummyTextEntry(
         WatcherTextEntry(
             id,
             WatcherEntry(File("/home/aro/IdeaProjects/Wrench/dummy"), arrayListOf()),
-            watcherManager,
             onEntrySelected
         )
     }

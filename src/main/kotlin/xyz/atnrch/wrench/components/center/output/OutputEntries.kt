@@ -15,6 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.unit.ExperimentalUnitApi
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.components.center.showDirectoryPicker
 import xyz.atnrch.wrench.logger.Logger
@@ -24,6 +27,7 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 import kotlin.io.path.pathString
 
+@OptIn(ExperimentalUnitApi::class)
 @Composable
 fun OutputEntries(
     watcherManager: WatcherManager,
@@ -34,7 +38,6 @@ fun OutputEntries(
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
-            .padding(PaddingValues(0.dp, 0.dp, 0.dp, 55.dp))
             .fillMaxHeight()
             .fillMaxWidth()
             .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape)
@@ -56,7 +59,11 @@ fun OutputEntries(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         if (outputs.isEmpty()) {
-                            Text("No outputs.")
+                            Text(
+                                text = "No outputs.",
+                                fontSize = TextUnit(20F, TextUnitType.Sp),
+                                color = Color.White
+                            )
                         } else {
                             outputs.forEach {
                                 Text(it.pathString)

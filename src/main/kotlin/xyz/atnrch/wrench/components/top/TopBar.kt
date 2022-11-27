@@ -18,7 +18,7 @@ import xyz.atnrch.wrench.ui.UIColors
 @Composable
 fun TopBar() {
     TopAppBar(
-        backgroundColor = UIColors.PRIMARY,
+        backgroundColor = UIColors.DARK,
         contentColor = Color.White,
         elevation = 16.dp,
         title = {

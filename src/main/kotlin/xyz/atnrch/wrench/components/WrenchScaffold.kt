@@ -11,6 +11,7 @@ import xyz.atnrch.wrench.components.bottom.BottomAppBar
 import xyz.atnrch.wrench.components.bottom.FloatingButton
 import xyz.atnrch.wrench.components.top.TopBar
 import xyz.atnrch.wrench.compose.SnackBarDataHolder
+import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
@@ -28,6 +29,7 @@ fun WrenchScaffold() {
         topBar = { TopBar() },
         floatingActionButton = { FloatingButton(watcherManager) },
         isFloatingActionButtonDocked = true,
+        backgroundColor = UIColors.PRIMARY,
         bottomBar = { BottomAppBar(watcher) }
     ) { WatcherDisplay(watcherManager) }
 }

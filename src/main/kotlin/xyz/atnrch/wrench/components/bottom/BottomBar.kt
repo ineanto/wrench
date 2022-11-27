@@ -14,6 +14,6 @@ fun BottomAppBar(
         cutoutShape = MaterialTheme.shapes.small.copy(
             CornerSize(percent = 50)
         ),
-        backgroundColor = UIColors.PRIMARY
+        backgroundColor = UIColors.DARK
     ) { BottomRowNew(watcher) }
 }

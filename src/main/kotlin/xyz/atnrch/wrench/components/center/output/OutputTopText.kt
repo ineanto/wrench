@@ -10,8 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.*
 
+@OptIn(ExperimentalUnitApi::class)
 @Composable
 fun OutputTopText() {
     Box(
@@ -24,12 +25,16 @@ fun OutputTopText() {
         Row {
             Icon(
                 Icons.Filled.Output,
-                tint = Color.Black,
+                tint = Color.White,
                 contentDescription = "Output",
-                modifier = Modifier.size(ButtonDefaults.IconSize)
+                modifier = Modifier.size(24.dp)
             )
-            Spacer(Modifier.width(5.dp))
-            Text("Output")
+            Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+            Text(
+                text = "Output",
+                color = Color.White,
+                fontSize = TextUnit(20F, TextUnitType.Sp)
+            )
         }
     }
 }

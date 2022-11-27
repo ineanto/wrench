@@ -15,15 +15,14 @@ import androidx.compose.ui.unit.TextUnitType
 import xyz.atnrch.wrench.components.center.dialog.EntryDialog
 import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
 import xyz.atnrch.wrench.ui.Fonts
+import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry
-import xyz.atnrch.wrench.watcher.WatcherManager
 
 @OptIn(ExperimentalUnitApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun WatcherTextEntry(
     id: Int,
     entry: WatcherEntry,
-    watcherManager: WatcherManager,
     onEntrySelected: (id: Int) -> Unit
 ) {
     var dialogState by remember { mutableStateOf(false) }
@@ -31,7 +30,7 @@ fun WatcherTextEntry(
     Text(
         text = entry.file.absolutePath,
         style = TextStyle(
-            color = if(ACTIVE_COMPOSABLE == id) Color.Red else Color.Black,
+            color = if(ACTIVE_COMPOSABLE == id) UIColors.GREEN else Color.White,
             fontSize = TextUnit(15F, TextUnitType.Sp),
             fontFamily = Fonts.ROBOTO_REGULAR
         ),
@@ -39,19 +38,14 @@ fun WatcherTextEntry(
             .onClick(
                 matcher = PointerMatcher.mouse(PointerButton.Primary),
                 onClick = {
-                    println("Active composable ID was $ACTIVE_COMPOSABLE")
                     ACTIVE_COMPOSABLE = id
-                    println("Active composable ID is now $ACTIVE_COMPOSABLE")
-                    if (ACTIVE_COMPOSABLE == id) {
-                        onEntrySelected.invoke(id)
-                    }
+                    onEntrySelected.invoke(id)
                 }
             )
             .onClick(
                 matcher = PointerMatcher.mouse(PointerButton.Secondary),
                 onClick = {
                     dialogState = true
-                    println("PATH IS ${watcherManager.getFromId(ACTIVE_COMPOSABLE)!!.file.path}")
                 }
             )
     )

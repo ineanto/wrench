@@ -10,8 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.ExperimentalUnitApi
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 
+@OptIn(ExperimentalUnitApi::class)
 @Composable
 fun InputTopText() {
     Box(
@@ -22,13 +26,17 @@ fun InputTopText() {
             .fillMaxWidth(0.5f)
     ) {
         Row {
-            Text("Input")
-            Spacer(Modifier.width(5.dp))
+            Text(
+                text = "Input",
+                color = Color.White,
+                fontSize = TextUnit(20F, TextUnitType.Sp)
+            )
+            Spacer(Modifier.size(ButtonDefaults.IconSpacing))
             Icon(
                 Icons.Filled.Input,
-                tint = Color.Black,
+                tint = Color.White,
                 contentDescription = "Input",
-                modifier = Modifier.size(ButtonDefaults.IconSize)
+                modifier = Modifier.size(24.dp)
             )
         }
     }
