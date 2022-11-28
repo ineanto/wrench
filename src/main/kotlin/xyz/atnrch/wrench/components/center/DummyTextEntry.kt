@@ -1,6 +1,7 @@
 package xyz.atnrch.wrench.components.center
 
 import androidx.compose.runtime.Composable
+import xyz.atnrch.wrench.components.center.input.InputTextEntry
 import xyz.atnrch.wrench.registery.RegisterComposable
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
@@ -13,7 +14,7 @@ fun DummyTextEntry(
 ) {
     val id = 0
     RegisterComposable(id) {
-        WatcherTextEntry(
+        InputTextEntry(
             id,
             WatcherEntry(File("/home/aro/IdeaProjects/Wrench/dummy"), arrayListOf()),
             onEntrySelected

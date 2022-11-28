@@ -30,5 +30,13 @@ class Fonts {
                 weight = FontWeight.Medium
             )
         )
+
+        val ROBOTO_BOLD: FontFamily = FontFamily(
+            Font(
+                resource = "font/Roboto-Bold.ttf",
+                style = FontStyle.Normal,
+                weight = FontWeight.Medium
+            )
+        )
     }
 }

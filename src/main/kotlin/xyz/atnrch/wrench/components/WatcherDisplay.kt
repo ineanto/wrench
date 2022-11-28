@@ -1,55 +1,34 @@
 package xyz.atnrch.wrench.components
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.QuestionMark
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import xyz.atnrch.wrench.components.center.empty.DefaultDisplay
 import xyz.atnrch.wrench.components.center.input.InputEntries
 import xyz.atnrch.wrench.components.center.output.OutputEntries
-import xyz.atnrch.wrench.ui.Fonts
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.io.File
+import java.nio.file.Path
 
 @Composable
-fun WatcherDisplay(watcherManager: WatcherManager) {
-    var currentClick by remember { mutableStateOf(-1) }
+fun WatcherDisplay(
+    watcherManager: WatcherManager,
+    currentClick: Int,
+    outputs: MutableList<Path>,
+    onEntryClick: (id: Int) -> Unit
+) {
+
     Row(
         modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 55.dp)
     ) {
         if (watcherManager.getEntries().isEmpty()) {
             watcherManager.addFile(File("/home/aro/IdeaProjects/Wrench/dummy"))
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier.fillMaxWidth().fillMaxHeight()
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    Icon(
-                        imageVector = Icons.Rounded.QuestionMark,
-                        tint = Color.White,
-                        contentDescription = "Open Folder",
-                        modifier = Modifier.size(ButtonDefaults.IconSize)
-                    )
-                    Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-                    Text(
-                        text = "Add a file to start...",
-                        fontFamily = Fonts.ROBOTO_REGULAR,
-                        color = Color.White
-                    )
-                }
-            }
+            DefaultDisplay()
         } else {
-            InputEntries(watcherManager) { currentClick = it }
-            OutputEntries(watcherManager, currentClick)
+            InputEntries(watcherManager, onEntryClick)
+            OutputEntries(watcherManager, currentClick, outputs)
         }
     }
 }

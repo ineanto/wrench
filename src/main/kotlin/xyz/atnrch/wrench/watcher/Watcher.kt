@@ -4,9 +4,11 @@ import androidx.compose.material.SnackbarDuration
 import kotlinx.coroutines.launch
 import xyz.atnrch.wrench.compose.SnackBarDataHolder
 import xyz.atnrch.wrench.logger.Logger
+import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardCopyOption
+import kotlin.io.path.name
 
 class Watcher(
     private val watcherManager: WatcherManager,
@@ -21,8 +23,12 @@ class Watcher(
                 filesTotal += 1
                 entry.map.forEach {
                     val movePath = "${it.toAbsolutePath()}/${entry.file.name}"
-                    Files.copy(entry.file.toPath(), Path.of(movePath), StandardCopyOption.REPLACE_EXISTING)
-                    foldersTotal += 1
+                    try {
+                        Files.copy(entry.file.toPath(), Path.of(movePath), StandardCopyOption.REPLACE_EXISTING)
+                        foldersTotal += 1
+                    } catch (exception: IOException) {
+                       Logger.warn("Failed to move ${it.name} to $movePath! (${exception.message}")
+                    }
                 }
             }
             val logMessage: String = if (foldersTotal < 1) {

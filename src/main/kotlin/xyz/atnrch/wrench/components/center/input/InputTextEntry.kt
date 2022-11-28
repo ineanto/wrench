@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.center
+package xyz.atnrch.wrench.components.center.input
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.PointerMatcher
@@ -20,7 +20,7 @@ import xyz.atnrch.wrench.watcher.WatcherEntry
 
 @OptIn(ExperimentalUnitApi::class, ExperimentalFoundationApi::class)
 @Composable
-fun WatcherTextEntry(
+fun InputTextEntry(
     id: Int,
     entry: WatcherEntry,
     onEntrySelected: (id: Int) -> Unit
@@ -31,8 +31,8 @@ fun WatcherTextEntry(
         text = entry.file.absolutePath,
         style = TextStyle(
             color = if(ACTIVE_COMPOSABLE == id) UIColors.GREEN else Color.White,
-            fontSize = TextUnit(15F, TextUnitType.Sp),
-            fontFamily = Fonts.ROBOTO_REGULAR
+            fontSize = TextUnit(17F, TextUnitType.Sp),
+            fontFamily = if(ACTIVE_COMPOSABLE == id) Fonts.ROBOTO_BOLD else Fonts.ROBOTO_REGULAR
         ),
         modifier = Modifier
             .onClick(

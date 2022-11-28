@@ -9,7 +9,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.components.center.WatcherTextEntry
 import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
 import xyz.atnrch.wrench.registery.RegisterComposable
 import xyz.atnrch.wrench.ui.UIColors
@@ -37,7 +36,7 @@ fun InputEntries(
         ) {
             watcherManager.getEntries().forEach {
                 RegisterComposable(it.key) {
-                    WatcherTextEntry(
+                    InputTextEntry(
                         it.key,
                         it.value,
                         onEntryClick
