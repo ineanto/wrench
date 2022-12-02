@@ -30,6 +30,6 @@ fun WrenchScaffold() {
         floatingActionButton = { FloatingButton(watcherManager) },
         isFloatingActionButtonDocked = true,
         backgroundColor = UIColors.PRIMARY,
-        bottomBar = { BottomAppBar(watcherManager, watcher, currentClick, outputs) }
+        bottomBar = { BottomAppBar(watcherManager, watcher, currentClick, outputs) { currentClick = it } }
     ) { WatcherDisplay(watcherManager, currentClick, outputs) { currentClick = it } }
 }

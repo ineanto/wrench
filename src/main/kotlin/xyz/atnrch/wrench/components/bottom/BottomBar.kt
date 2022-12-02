@@ -13,12 +13,13 @@ fun BottomAppBar(
     watcherManager: WatcherManager,
     watcher: Watcher,
     currentClick: Int,
-    outputs: MutableList<Path>
+    outputs: MutableList<Path>,
+    onCurrentClick: (Int) -> Unit
 ) {
     androidx.compose.material.BottomAppBar(
         cutoutShape = MaterialTheme.shapes.small.copy(
             CornerSize(percent = 50)
         ),
         backgroundColor = UIColors.DARK
-    ) { BottomRowNew(watcherManager, watcher, currentClick, outputs) }
+    ) { BottomRowNew(watcherManager, watcher, currentClick, outputs, onCurrentClick) }
 }
