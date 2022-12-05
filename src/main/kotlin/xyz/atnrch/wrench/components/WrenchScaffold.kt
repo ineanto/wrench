@@ -4,6 +4,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
+import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.components.bottom.BottomAppBar
 import xyz.atnrch.wrench.components.bottom.FloatingButton
 import xyz.atnrch.wrench.components.top.TopBar
@@ -15,7 +16,7 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 
 @Composable
-fun WrenchScaffold() {
+fun WrenchScaffold(state: WindowState) {
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     val entries: MutableMap<Int, WatcherEntry> = remember { mutableStateMapOf() }
     val outputs: MutableList<Path> = remember { mutableStateListOf() }
@@ -30,6 +31,6 @@ fun WrenchScaffold() {
         floatingActionButton = { FloatingButton(watcherManager) },
         isFloatingActionButtonDocked = true,
         backgroundColor = UIColors.PRIMARY,
-        bottomBar = { BottomAppBar(watcherManager, watcher, currentClick, outputs) { currentClick = it } }
-    ) { WatcherDisplay(watcherManager, currentClick, outputs) { currentClick = it } }
+        bottomBar = { BottomAppBar(state, watcherManager, watcher, currentClick, outputs) { currentClick = it } }
+    ) { WatcherDisplay(state, watcherManager, currentClick, outputs) { currentClick = it } }
 }

@@ -33,9 +33,13 @@ compose.desktop {
     application {
         mainClass = "xyz.atnrch.wrench.WrenchApp"
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.AppImage)
+            targetFormats(TargetFormat.AppImage)
             packageName = "Wrench"
             packageVersion = "1.0.0"
+            linux {
+                packageName = "Wrench"
+                //iconFile.set(project.file(""))
+            }
         }
     }
 }

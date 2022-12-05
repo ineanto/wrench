@@ -16,19 +16,13 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
 fun InputEntries(
+    minmode: Boolean,
     watcherManager: WatcherManager,
     onEntryClick: (id: Int) -> Unit
 ) {
     Box(
         contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .fillMaxHeight()
-            .fillMaxWidth(0.5f)
-            .border(BorderStroke(4.dp, UIColors.ORANGE), RectangleShape)
-            .clickable {
-                ACTIVE_COMPOSABLE = -1
-                onEntryClick.invoke(-1)
-            }
+        modifier = getModifier(minmode, onEntryClick)
     ) {
         InputTopText()
         Column(
@@ -44,5 +38,30 @@ fun InputEntries(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun getModifier(
+    minmode: Boolean,
+    onEntryClick: (id: Int) -> Unit
+): Modifier {
+    return if (minmode)
+        Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(0.5f)
+            .border(BorderStroke(4.dp, UIColors.ORANGE), RectangleShape)
+            .clickable {
+                ACTIVE_COMPOSABLE = -1
+                onEntryClick.invoke(-1)
+            } else {
+        Modifier
+            .fillMaxHeight()
+            .fillMaxWidth(0.5f)
+            .border(BorderStroke(4.dp, UIColors.ORANGE), RectangleShape)
+            .clickable {
+                ACTIVE_COMPOSABLE = -1
+                onEntryClick.invoke(-1)
+            }
     }
 }

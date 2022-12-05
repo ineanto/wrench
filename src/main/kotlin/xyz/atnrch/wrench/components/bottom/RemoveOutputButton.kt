@@ -13,26 +13,29 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
 import xyz.atnrch.wrench.ui.UIColors
-import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 
 @Composable
 fun RemoveOutputButton(
+    state: WindowState,
     watcherManager: WatcherManager,
     outputs: MutableList<Path>,
     currentClick: Int,
     onCurrentClick: (Int) -> Unit
 ) {
+    val scaleFactor: Float = if (state.size.width <= 600.dp) 0.85f else 1f
+
     Button(
         onClick =
         {
-            val entry: WatcherEntry? = watcherManager.getFromId(currentClick)
             watcherManager.removeFile(currentClick)
             outputs.clear()
             ACTIVE_COMPOSABLE = -1
@@ -47,7 +50,7 @@ fun RemoveOutputButton(
         ),
         shape = RoundedCornerShape(100),
         border = BorderStroke(2.dp, UIColors.STRESS),
-        modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false)
+        modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false).scale(scaleFactor)
     ) {
         Icon(
             Icons.Filled.Delete,

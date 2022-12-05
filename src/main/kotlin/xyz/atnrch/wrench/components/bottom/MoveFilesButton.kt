@@ -10,7 +10,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.NoteAdd
+import androidx.compose.material.icons.filled.Update
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
@@ -18,34 +18,18 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowState
-import xyz.atnrch.wrench.components.center.showDirectoryPicker
-import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.ui.UIColors
-import xyz.atnrch.wrench.watcher.WatcherEntry
-import xyz.atnrch.wrench.watcher.WatcherManager
-import java.nio.file.Path
+import xyz.atnrch.wrench.watcher.Watcher
 
 @Composable
-fun AddOutputButton(
+fun MoveFilesButton(
     state: WindowState,
-    watcherManager: WatcherManager,
-    outputs: MutableList<Path>,
-    currentClick: Int
+    watcher: Watcher
 ) {
     val scaleFactor: Float = if (state.size.width <= 600.dp) 0.85f else 1f
 
     Button(
-        onClick =
-        {
-            val entry: WatcherEntry? = watcherManager.getFromId(currentClick)
-            showDirectoryPicker({
-                Logger.info("Path: ${it.absolutePath}")
-                entry!!.map.add(it.toPath())
-                outputs.add(it.toPath())
-            }, {
-                Logger.info("No file selected.")
-            })
-        },
+        onClick = { watcher.move() },
         colors = ButtonDefaults.buttonColors(UIColors.DARK, Color.White),
         contentPadding = PaddingValues(
             start = 14.dp,
@@ -54,16 +38,16 @@ fun AddOutputButton(
             bottom = 6.dp
         ),
         shape = RoundedCornerShape(100),
-        border = BorderStroke(2.dp, UIColors.ORANGE),
+        border = BorderStroke(2.dp, UIColors.GREEN),
         modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false).scale(scaleFactor)
     ) {
         Icon(
-            Icons.Filled.NoteAdd,
-            tint = UIColors.ORANGE,
-            contentDescription = "Add output",
+            Icons.Filled.Update,
+            tint = UIColors.GREEN,
+            contentDescription = "Start",
             modifier = Modifier.size(22.dp)
         )
         Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-        Text("Add output...")
+        Text("Move files")
     }
 }
