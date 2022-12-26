@@ -37,7 +37,7 @@ fun WatcherDisplay(
             selectedTabIndex = tabIndex,
             backgroundColor = UIColors.ORANGE,
             contentColor = Color.White
-        ) { // 3.
+        ) {
             tabTitles.forEachIndexed { index, title ->
                 Tab(selected = tabIndex == index,
                     onClick = { onTabChange(index) },
