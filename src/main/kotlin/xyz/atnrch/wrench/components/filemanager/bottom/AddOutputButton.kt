@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.bottom
+package xyz.atnrch.wrench.components.filemanager.bottom
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
@@ -18,7 +18,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowState
-import xyz.atnrch.wrench.components.center.showDirectoryPicker
+import xyz.atnrch.wrench.components.filemanager.center.showDirectoryPicker
 import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry

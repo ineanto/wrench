@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.center
+package xyz.atnrch.wrench.components.filemanager.center
 
 import java.io.File
 import javax.swing.JFileChooser

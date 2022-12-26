@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.bottom
+package xyz.atnrch.wrench.components.filemanager.bottom
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.size
@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.components.center.showFilePicker
+import xyz.atnrch.wrench.components.filemanager.center.showFilePicker
 import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager

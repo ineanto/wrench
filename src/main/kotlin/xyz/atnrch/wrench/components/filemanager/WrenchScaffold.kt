@@ -1,13 +1,13 @@
-package xyz.atnrch.wrench.components
+package xyz.atnrch.wrench.components.filemanager
 
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
 import androidx.compose.ui.window.WindowState
-import xyz.atnrch.wrench.components.bottom.BottomAppBar
-import xyz.atnrch.wrench.components.bottom.FloatingButton
-import xyz.atnrch.wrench.components.top.TopBar
+import xyz.atnrch.wrench.components.filemanager.bottom.BottomAppBar
+import xyz.atnrch.wrench.components.filemanager.bottom.FloatingButton
+import xyz.atnrch.wrench.components.filemanager.top.TopBar
 import xyz.atnrch.wrench.compose.SnackBarDataHolder
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.Watcher

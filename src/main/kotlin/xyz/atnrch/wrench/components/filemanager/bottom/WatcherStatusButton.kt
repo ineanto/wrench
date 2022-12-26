@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.bottom
+package xyz.atnrch.wrench.components.filemanager.bottom
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width

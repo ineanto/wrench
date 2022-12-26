@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.center.input
+package xyz.atnrch.wrench.components.filemanager.center.input
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.PointerMatcher
@@ -12,7 +12,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
-import xyz.atnrch.wrench.components.center.dialog.EntryDialog
+import xyz.atnrch.wrench.components.filemanager.center.dialog.EntryDialog
 import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
 import xyz.atnrch.wrench.ui.Fonts
 import xyz.atnrch.wrench.ui.UIColors

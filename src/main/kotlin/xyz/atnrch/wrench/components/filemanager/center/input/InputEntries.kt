@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.center.input
+package xyz.atnrch.wrench.components.filemanager.center.input
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border

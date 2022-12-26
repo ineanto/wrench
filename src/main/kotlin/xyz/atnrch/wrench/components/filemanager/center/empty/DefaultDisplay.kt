@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.center.empty
+package xyz.atnrch.wrench.components.filemanager.center.empty
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon

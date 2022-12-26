@@ -1,7 +1,7 @@
-package xyz.atnrch.wrench.components.center
+package xyz.atnrch.wrench.components.filemanager.center
 
 import androidx.compose.runtime.Composable
-import xyz.atnrch.wrench.components.center.input.InputTextEntry
+import xyz.atnrch.wrench.components.filemanager.center.input.InputTextEntry
 import xyz.atnrch.wrench.registery.RegisterComposable
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager

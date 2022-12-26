@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.center.dialog
+package xyz.atnrch.wrench.components.filemanager.center.dialog
 
 import androidx.compose.runtime.Composable
 
