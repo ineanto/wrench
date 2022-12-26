@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.components.filemanager
+package xyz.atnrch.wrench.components
 
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
