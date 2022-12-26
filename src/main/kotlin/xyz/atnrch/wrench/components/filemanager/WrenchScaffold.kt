@@ -17,6 +17,7 @@ import java.nio.file.Path
 
 @Composable
 fun WrenchScaffold(state: WindowState) {
+    // i love god objects
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     val entries: MutableMap<Int, WatcherEntry> = remember { mutableStateMapOf() }
     val outputs: MutableList<Path> = remember { mutableStateListOf() }
@@ -24,6 +25,8 @@ fun WrenchScaffold(state: WindowState) {
     val watcherManager = remember { WatcherManager(entries) }
     val watcher = remember { Watcher(watcherManager, snackBarDataHolder) }
     var currentClick by remember { mutableStateOf(-1) }
+    var tabIndex by remember { mutableStateOf(0) }
+    val tabTitles = listOf("File Manager", "Servers")
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -32,5 +35,15 @@ fun WrenchScaffold(state: WindowState) {
         isFloatingActionButtonDocked = true,
         backgroundColor = UIColors.PRIMARY,
         bottomBar = { BottomAppBar(state, watcherManager, watcher, currentClick, outputs) { currentClick = it } }
-    ) { WatcherDisplay(state, watcherManager, currentClick, outputs) { currentClick = it } }
+    ) {
+        WatcherDisplay(
+            state,
+            watcherManager,
+            currentClick,
+            outputs,
+            { currentClick = it },
+            tabIndex,
+            tabTitles
+        ) { tabIndex = it }
+    }
 }

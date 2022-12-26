@@ -7,9 +7,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.components.filemanager.center.empty.DefaultDisplay
@@ -25,30 +26,33 @@ fun WatcherDisplay(
     watcherManager: WatcherManager,
     currentClick: Int,
     outputs: MutableList<Path>,
-    onEntryClick: (id: Int) -> Unit
+    onEntryClick: (id: Int) -> Unit,
+    tabIndex: Int,
+    tabTitles: List<String>,
+    onTabChange: (id: Int) -> Unit
 ) {
-    var tabIndex by remember { mutableStateOf(0) } // 1.
-    val tabTitles = listOf("File Manager", "Servers")
-    Column { // 2.
+
+    Column {
         TabRow(
             selectedTabIndex = tabIndex,
-            backgroundColor = UIColors.ORANGE
+            backgroundColor = UIColors.ORANGE,
+            contentColor = Color.White
         ) { // 3.
             tabTitles.forEachIndexed { index, title ->
-                Tab(selected = tabIndex == index, // 4.
-                    onClick = { tabIndex = index },
-                    text = { Text(text = title) }) // 5.
+                Tab(selected = tabIndex == index,
+                    onClick = { onTabChange(index) },
+                    text = { Text(text = title) })
             }
         }
-        when (tabIndex) { // 6.
-            0 -> getDisplayDependingOnSize(state, watcherManager, currentClick, outputs, onEntryClick)
-            1 -> Text("There content")
+        when (tabIndex) {
+            0 -> FileManagerDisplay(state, watcherManager, currentClick, outputs, onEntryClick)
+            1 -> TODO("Add Server Manager")
         }
     }
 }
 
 @Composable
-fun getDisplayDependingOnSize(
+fun FileManagerDisplay(
     state: WindowState,
     watcherManager: WatcherManager,
     currentClick: Int,
@@ -61,7 +65,7 @@ fun getDisplayDependingOnSize(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            displayEntries(true, watcherManager, currentClick, outputs, onEntryClick)
+            DisplayEntries(true, watcherManager, currentClick, outputs, onEntryClick)
         }
     } else {
         Row(
@@ -69,13 +73,13 @@ fun getDisplayDependingOnSize(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            displayEntries(false, watcherManager, currentClick, outputs, onEntryClick)
+            DisplayEntries(false, watcherManager, currentClick, outputs, onEntryClick)
         }
     }
 }
 
 @Composable
-fun displayEntries(
+fun DisplayEntries(
     minmode: Boolean,
     watcherManager: WatcherManager,
     currentClick: Int,
