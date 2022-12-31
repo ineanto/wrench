@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.components.filemanager.FileManagerDisplay
+import xyz.atnrch.wrench.components.server.ServerManagerDisplay
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
@@ -38,10 +39,7 @@ fun WatcherDisplay(
         }
         when (tabIndex) {
             0 -> FileManagerDisplay(state, watcherManager, currentClick, outputs, onEntryClick)
-            1 -> Text(
-                color = Color.White,
-                text = "Hello!"
-            )
+            1 -> ServerManagerDisplay()
         }
     }
 }
