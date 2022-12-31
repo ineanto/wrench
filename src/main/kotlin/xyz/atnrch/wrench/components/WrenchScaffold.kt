@@ -5,7 +5,7 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
 import androidx.compose.ui.window.WindowState
-import xyz.atnrch.wrench.components.filemanager.bottom.BottomAppBar
+import xyz.atnrch.wrench.components.filemanager.bottom.AppBottomBar
 import xyz.atnrch.wrench.components.filemanager.bottom.FloatingButton
 import xyz.atnrch.wrench.components.filemanager.top.TopBar
 import xyz.atnrch.wrench.compose.SnackBarDataHolder
@@ -34,7 +34,7 @@ fun WrenchScaffold(state: WindowState) {
         floatingActionButton = { FloatingButton(watcherManager) },
         isFloatingActionButtonDocked = true,
         backgroundColor = UIColors.PRIMARY,
-        bottomBar = { BottomAppBar(state, watcherManager, watcher, currentClick, outputs) { currentClick = it } }
+        bottomBar = { AppBottomBar(state, watcherManager, watcher, currentClick, outputs) { currentClick = it } }
     ) {
         WatcherDisplay(
             state,

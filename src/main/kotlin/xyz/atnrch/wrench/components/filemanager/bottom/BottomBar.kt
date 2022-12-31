@@ -1,6 +1,7 @@
 package xyz.atnrch.wrench.components.filemanager.bottom
 
 import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.material.BottomAppBar
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.WindowState
@@ -10,7 +11,7 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 
 @Composable
-fun BottomAppBar(
+fun AppBottomBar(
     state: WindowState,
     watcherManager: WatcherManager,
     watcher: Watcher,
@@ -18,7 +19,7 @@ fun BottomAppBar(
     outputs: MutableList<Path>,
     onCurrentClick: (Int) -> Unit
 ) {
-    androidx.compose.material.BottomAppBar(
+    BottomAppBar(
         cutoutShape = MaterialTheme.shapes.small.copy(
             CornerSize(percent = 50)
         ),
