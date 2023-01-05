@@ -2,12 +2,13 @@ package xyz.atnrch.wrench.watcher
 
 import xyz.atnrch.wrench.logger.Logger
 import java.io.File
+import java.nio.file.Path
 
 class WatcherManager(private val entries: MutableMap<Int, WatcherEntry>) {
     private var currentId: Int = -1
 
-    fun addFile(file: File) {
-        val watcherEntry = WatcherEntry(file, arrayListOf())
+    fun addFile(file: File, outputs: ArrayList<Path>) {
+        val watcherEntry = WatcherEntry(file, outputs)
         currentId += 1
         entries[currentId] = watcherEntry
         Logger.info(
@@ -18,6 +19,10 @@ class WatcherManager(private val entries: MutableMap<Int, WatcherEntry>) {
             Path: ${file.absolutePath}
         """.trimIndent()
         )
+    }
+
+    fun addFile(file: File) {
+        addFile(file, arrayListOf())
     }
 
     fun removeFile(id: Int) {
