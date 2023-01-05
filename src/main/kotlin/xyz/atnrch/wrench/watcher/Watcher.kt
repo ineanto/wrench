@@ -21,7 +21,7 @@ class Watcher(
             var foldersTotal = 0
             for (entry: WatcherEntry in watcherManager.getEntries().values) {
                 filesTotal += 1
-                entry.map.forEach {
+                entry.outputs.forEach {
                     val movePath = "${it.toAbsolutePath()}/${entry.file.name}"
                     try {
                         Files.copy(entry.file.toPath(), Path.of(movePath), StandardCopyOption.REPLACE_EXISTING)
