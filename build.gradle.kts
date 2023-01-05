@@ -1,4 +1,3 @@
-
 import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -23,6 +22,7 @@ dependencies {
     implementation(compose.materialIconsExtended)
     implementation(compose.material3)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.6.4")
+    implementation("com.google.code.gson:gson:2.10")
 }
 
 tasks.withType<KotlinCompile> {

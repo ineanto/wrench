@@ -1,10 +1,11 @@
-package xyz.atnrch.wrench.components.filemanager.bottom
+package xyz.atnrch.wrench.components
 
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.WindowState
+import xyz.atnrch.wrench.components.filemanager.bottom.BottomRowNew
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherManager
