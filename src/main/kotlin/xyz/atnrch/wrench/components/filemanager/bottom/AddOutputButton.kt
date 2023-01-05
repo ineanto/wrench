@@ -13,11 +13,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.NoteAdd
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.components.filemanager.center.showDirectoryPicker
 import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.ui.UIColors
@@ -27,13 +25,10 @@ import java.nio.file.Path
 
 @Composable
 fun AddOutputButton(
-    state: WindowState,
     watcherManager: WatcherManager,
     outputs: MutableList<Path>,
     currentClick: Int
 ) {
-    val scaleFactor: Float = if (state.size.width <= 600.dp) 0.85f else 1f
-
     Button(
         onClick =
         {
@@ -55,7 +50,7 @@ fun AddOutputButton(
         ),
         shape = RoundedCornerShape(100),
         border = BorderStroke(2.dp, UIColors.ORANGE),
-        modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false).scale(scaleFactor)
+        modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false)
     ) {
         Icon(
             Icons.Filled.NoteAdd,

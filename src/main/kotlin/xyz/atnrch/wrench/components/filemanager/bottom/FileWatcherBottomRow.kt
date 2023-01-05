@@ -11,7 +11,7 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 
 @Composable
-fun BottomRowNew(
+fun FileWatcherBottomRow(
     state: WindowState,
     watcherManager: WatcherManager,
     watcher: Watcher,
@@ -19,14 +19,12 @@ fun BottomRowNew(
     outputs: MutableList<Path>,
     onCurrentClick: (Int) -> Unit,
 ) {
-    val buttonWidth = if (state.size.width <= 600.dp) 0.dp else 10.dp
-
     Spacer(Modifier.width(10.dp))
     MoveFilesButton(state, watcher)
     if (currentClick != -1) {
-        Spacer(Modifier.width(buttonWidth))
-        AddOutputButton(state, watcherManager, outputs, currentClick)
-        Spacer(Modifier.width(buttonWidth))
-        RemoveOutputButton(state, watcherManager, outputs, currentClick, onCurrentClick)
+        Spacer(Modifier.width(10.dp))
+        AddOutputButton(watcherManager, outputs, currentClick)
+        Spacer(Modifier.width(10.dp))
+        RemoveOutputButton(watcherManager, outputs, currentClick, onCurrentClick)
     }
 }
