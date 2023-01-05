@@ -41,7 +41,7 @@ fun OutputEntries(
             val entry: WatcherEntry? = watcherManager.getFromId(currentClick)
             if (entry != null) {
                 outputs.clear()
-                outputs.addAll(entry.map)
+                outputs.addAll(entry.outputs)
 
                 Box(
                     contentAlignment = Alignment.Center
