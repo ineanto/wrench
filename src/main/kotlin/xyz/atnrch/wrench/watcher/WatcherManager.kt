@@ -10,7 +10,14 @@ class WatcherManager(private val entries: MutableMap<Int, WatcherEntry>) {
         val watcherEntry = WatcherEntry(file, arrayListOf())
         currentId += 1
         entries[currentId] = watcherEntry
-        Logger.info("Tracking new file:\n ID: $currentId\n Name: ${file.name}\n Path: ${file.absolutePath}")
+        Logger.info(
+            """
+            Tracking new file:
+            ID: $currentId
+            Name: ${file.name}
+            Path: ${file.absolutePath}
+        """.trimIndent()
+        )
     }
 
     fun removeFile(id: Int) {
