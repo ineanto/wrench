@@ -37,10 +37,10 @@ fun AddOutputButton(
     Button(
         onClick =
         {
-            val entry: WatcherEntry? = watcherManager.getFromId(currentClick)
+            val entry: WatcherEntry = watcherManager.getFromId(currentClick)!!
             showDirectoryPicker({
                 Logger.info("Path: ${it.absolutePath}")
-                entry!!.map.add(it.toPath())
+                entry.outputs.add(it.toPath())
                 outputs.add(it.toPath())
             }, {
                 Logger.info("No file selected.")
