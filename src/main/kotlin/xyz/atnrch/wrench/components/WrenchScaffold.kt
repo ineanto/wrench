@@ -30,7 +30,7 @@ fun WrenchScaffold(state: WindowState) {
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar() },
-        floatingActionButton = { FloatingButton(watcherManager) },
+        floatingActionButton = { if(tabIndex == 0) FloatingButton(watcherManager) },
         isFloatingActionButtonDocked = true,
         backgroundColor = UIColors.PRIMARY,
         bottomBar = { AppBottomBar(state, watcherManager, watcher, currentClick, outputs) { currentClick = it } }
