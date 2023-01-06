@@ -14,7 +14,7 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 
 @Composable
-fun SmallBottomRow(
+fun SmallFileBottomRow(
     state: WindowState,
     watcherManager: WatcherManager,
     watcher: Watcher,
