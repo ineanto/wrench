@@ -10,7 +10,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.IosShare
+import androidx.compose.material.icons.filled.Publish
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -38,9 +38,9 @@ fun MoveFilesButton(
         modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false)
     ) {
         Icon(
-            Icons.Filled.IosShare,
+            Icons.Filled.Publish,
             tint = UIColors.GREEN,
-            contentDescription = "Start",
+            contentDescription = "Move Files",
             modifier = Modifier.size(22.dp)
         )
         if(!minMode) {
