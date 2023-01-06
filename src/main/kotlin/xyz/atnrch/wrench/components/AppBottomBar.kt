@@ -4,8 +4,7 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import xyz.atnrch.wrench.components.filemanager.bottom.bar.NormalFileBottomRow
-import xyz.atnrch.wrench.components.filemanager.bottom.bar.SmallFileBottomRow
+import xyz.atnrch.wrench.components.filemanager.bottom.FileBottomRow
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherManager
@@ -26,9 +25,6 @@ fun AppBottomBar(
         ),
         backgroundColor = UIColors.DARK
     ) {
-        if (minMode)
-            NormalFileBottomRow(watcherManager, watcher, currentClick, outputs, onCurrentClick)
-        else
-            SmallFileBottomRow(watcherManager, watcher, currentClick, outputs, onCurrentClick)
+        FileBottomRow(minMode, watcherManager, watcher, currentClick, outputs, onCurrentClick)
     }
 }

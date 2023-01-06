@@ -23,6 +23,7 @@ import java.nio.file.Path
 
 @Composable
 fun RemoveOutputButton(
+    minMode: Boolean,
     watcherManager: WatcherManager,
     outputs: MutableList<Path>,
     currentClick: Int,
@@ -53,7 +54,9 @@ fun RemoveOutputButton(
             contentDescription = "Remove file",
             modifier = Modifier.size(22.dp)
         )
-        Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-        Text("Delete input")
+        if (!minMode) {
+            Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+            Text("Delete input")
+        }
     }
 }

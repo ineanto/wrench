@@ -21,6 +21,7 @@ import xyz.atnrch.wrench.watcher.Watcher
 
 @Composable
 fun MoveFilesButton(
+    minMode: Boolean,
     watcher: Watcher
 ) {
     Button(
@@ -42,7 +43,9 @@ fun MoveFilesButton(
             contentDescription = "Start",
             modifier = Modifier.size(22.dp)
         )
-        Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-        Text("Move files")
+        if(!minMode) {
+            Spacer(Modifier.size(ButtonDefaults.IconSpacing))
+            Text("Move files")
+        }
     }
 }
