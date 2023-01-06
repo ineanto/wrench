@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.components.filemanager.center.empty.DefaultDisplay
 import xyz.atnrch.wrench.components.filemanager.center.input.InputEntries
 import xyz.atnrch.wrench.components.filemanager.center.output.OutputEntries
@@ -18,13 +17,13 @@ import java.nio.file.Path
 
 @Composable
 fun FileManagerDisplay(
-    state: WindowState,
+    minMode: Boolean,
     watcherManager: WatcherManager,
     currentClick: Int,
     outputs: MutableList<Path>,
     onEntryClick: (id: Int) -> Unit
 ) {
-    if (state.size.width <= 600.dp) {
+    if (minMode) {
         Column(
             modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 55.dp),
             verticalArrangement = Arrangement.Top,

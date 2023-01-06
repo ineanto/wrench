@@ -6,7 +6,6 @@ import androidx.compose.material.TabRow
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.components.filemanager.FileManagerDisplay
 import xyz.atnrch.wrench.components.server.ServerManagerDisplay
 import xyz.atnrch.wrench.ui.UIColors
@@ -15,7 +14,7 @@ import java.nio.file.Path
 
 @Composable
 fun WatcherDisplay(
-    state: WindowState,
+    minMode: Boolean,
     watcherManager: WatcherManager,
     currentClick: Int,
     outputs: MutableList<Path>,
@@ -24,7 +23,6 @@ fun WatcherDisplay(
     tabTitles: List<String>,
     onTabChange: (id: Int) -> Unit
 ) {
-
     Column {
         TabRow(
             selectedTabIndex = tabIndex,
@@ -38,7 +36,7 @@ fun WatcherDisplay(
             }
         }
         when (tabIndex) {
-            0 -> FileManagerDisplay(state, watcherManager, currentClick, outputs, onEntryClick)
+            0 -> FileManagerDisplay(minMode, watcherManager, currentClick, outputs, onEntryClick)
             1 -> ServerManagerDisplay()
         }
     }

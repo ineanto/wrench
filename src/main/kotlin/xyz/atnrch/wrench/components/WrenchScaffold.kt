@@ -4,6 +4,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.components.filemanager.bottom.FloatingButton
 import xyz.atnrch.wrench.components.filemanager.top.TopBar
@@ -23,20 +24,36 @@ fun WrenchScaffold(state: WindowState) {
     val snackBarDataHolder = SnackBarDataHolder(scaffoldState, rememberCoroutineScope())
     val watcherManager = remember { WatcherManager(entries) }
     val watcher = remember { Watcher(watcherManager, snackBarDataHolder) }
-    var currentClick by remember { mutableStateOf(-1) }
-    var tabIndex by remember { mutableStateOf(0) }
     val tabTitles = listOf("File Manager", "Servers")
 
+    var currentClick by remember { mutableStateOf(-1) }
+    var tabIndex by remember { mutableStateOf(0) }
+    var minMode by remember { mutableStateOf(false) }
+
+    minMode = state.size.width <= 600.dp
+    if(!minMode) {
+        println("MODE: NORMAL MODE")
+    } else {
+        println("MODE: MINMODE")
+    }
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar() },
-        floatingActionButton = { if(tabIndex == 0) FloatingButton(watcherManager) },
+        floatingActionButton = { if (tabIndex == 0) FloatingButton(watcherManager) },
         isFloatingActionButtonDocked = true,
         backgroundColor = UIColors.PRIMARY,
-        bottomBar = { if(tabIndex == 0) AppBottomBar(state, watcherManager, watcher, currentClick, outputs) { currentClick = it } }
+        bottomBar = {
+            if (tabIndex == 0) AppBottomBar(
+                minMode,
+                watcherManager,
+                watcher,
+                currentClick,
+                outputs
+            ) { currentClick = it }
+        }
     ) {
         WatcherDisplay(
-            state,
+            minMode,
             watcherManager,
             currentClick,
             outputs,

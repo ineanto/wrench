@@ -16,13 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.ui.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 
 @Composable
 fun MoveFilesButton(
-    state: WindowState,
     watcher: Watcher
 ) {
     Button(
