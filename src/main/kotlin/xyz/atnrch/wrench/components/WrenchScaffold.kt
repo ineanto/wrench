@@ -2,6 +2,7 @@ package xyz.atnrch.wrench.components
 
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
@@ -31,30 +32,34 @@ fun WrenchScaffold(state: WindowState) {
     var minMode by remember { mutableStateOf(false) }
 
     minMode = state.size.width <= 600.dp
-    Scaffold(
-        scaffoldState = scaffoldState,
-        topBar = { TopBar() },
-        floatingActionButton = { if (tabIndex == 0) FloatingButton(watcherManager) },
-        isFloatingActionButtonDocked = true,
-        backgroundColor = UIColors.PRIMARY,
-        bottomBar = {
-            if (tabIndex == 0) AppBottomBar(
+    if(state.size.width < 500.dp) {
+        Text("Window is too small")
+    } else {
+        Scaffold(
+            scaffoldState = scaffoldState,
+            topBar = { TopBar() },
+            floatingActionButton = { if (tabIndex == 0) FloatingButton(watcherManager) },
+            isFloatingActionButtonDocked = true,
+            backgroundColor = UIColors.PRIMARY,
+            bottomBar = {
+                if (tabIndex == 0) AppBottomBar(
+                    minMode,
+                    watcherManager,
+                    watcher,
+                    currentClick,
+                    outputs
+                ) { currentClick = it }
+            }
+        ) {
+            WatcherDisplay(
                 minMode,
                 watcherManager,
-                watcher,
                 currentClick,
-                outputs
-            ) { currentClick = it }
+                outputs,
+                { currentClick = it },
+                tabIndex,
+                tabTitles
+            ) { tabIndex = it }
         }
-    ) {
-        WatcherDisplay(
-            minMode,
-            watcherManager,
-            currentClick,
-            outputs,
-            { currentClick = it },
-            tabIndex,
-            tabTitles
-        ) { tabIndex = it }
     }
 }
