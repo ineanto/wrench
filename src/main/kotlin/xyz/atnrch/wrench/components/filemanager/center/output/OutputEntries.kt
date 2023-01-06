@@ -22,7 +22,6 @@ import kotlin.io.path.pathString
 @OptIn(ExperimentalUnitApi::class)
 @Composable
 fun OutputEntries(
-    minmode: Boolean,
     watcherManager: WatcherManager,
     currentClick: Int,
     outputs: MutableList<Path>

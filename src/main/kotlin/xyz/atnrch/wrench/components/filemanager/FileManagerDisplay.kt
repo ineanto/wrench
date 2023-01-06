@@ -55,6 +55,6 @@ fun DisplayEntries(
         DefaultDisplay()
     } else {
         InputEntries(minmode, watcherManager, onEntryClick)
-        OutputEntries(minmode, watcherManager, currentClick, outputs)
+        OutputEntries(watcherManager, currentClick, outputs)
     }
 }
