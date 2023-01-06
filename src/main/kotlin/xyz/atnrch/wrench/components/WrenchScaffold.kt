@@ -31,11 +31,6 @@ fun WrenchScaffold(state: WindowState) {
     var minMode by remember { mutableStateOf(false) }
 
     minMode = state.size.width <= 600.dp
-    if(!minMode) {
-        println("MODE: NORMAL MODE")
-    } else {
-        println("MODE: MINMODE")
-    }
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = { TopBar() },
