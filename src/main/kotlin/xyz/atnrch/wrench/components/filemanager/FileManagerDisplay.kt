@@ -13,6 +13,7 @@ import xyz.atnrch.wrench.components.filemanager.center.empty.DefaultDisplay
 import xyz.atnrch.wrench.components.filemanager.center.input.InputEntries
 import xyz.atnrch.wrench.components.filemanager.center.output.OutputEntries
 import xyz.atnrch.wrench.watcher.WatcherManager
+import java.io.File
 import java.nio.file.Path
 
 @Composable
@@ -51,7 +52,7 @@ fun DisplayEntries(
     onEntryClick: (id: Int) -> Unit
 ) {
     if (watcherManager.getEntries().isEmpty()) {
-        //watcherManager.addFile(File("/home/aro/IdeaProjects/Wrench/dummy"))
+        watcherManager.addFile(File("/home/aro/IdeaProjects/Wrench/dummy"))
         DefaultDisplay()
     } else {
         InputEntries(minmode, watcherManager, onEntryClick)

@@ -13,7 +13,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Update
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -26,8 +25,6 @@ fun MoveFilesButton(
     state: WindowState,
     watcher: Watcher
 ) {
-    val scaleFactor: Float = if (state.size.width <= 600.dp) 0.85f else 1f
-
     Button(
         onClick = { watcher.move() },
         colors = ButtonDefaults.buttonColors(UIColors.DARK, Color.White),
@@ -39,7 +36,7 @@ fun MoveFilesButton(
         ),
         shape = RoundedCornerShape(100),
         border = BorderStroke(2.dp, UIColors.GREEN),
-        modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false).scale(scaleFactor)
+        modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false)
     ) {
         Icon(
             Icons.Filled.Update,
