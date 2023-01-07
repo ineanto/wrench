@@ -51,8 +51,8 @@ fun OutputEntries(
                     ) {
                         if (outputs.isEmpty()) {
                             Text(
-                                text = "No outputs.",
-                                fontSize = TextUnit(20F, TextUnitType.Sp),
+                                text = "This file does not have any output location.",
+                                fontSize = TextUnit(17F, TextUnitType.Sp),
                                 color = Color.White
                             )
                         } else {
