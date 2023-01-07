@@ -2,7 +2,7 @@ package xyz.atnrch.wrench.watcher
 
 import androidx.compose.material.SnackbarDuration
 import kotlinx.coroutines.launch
-import xyz.atnrch.wrench.compose.SnackBarDataHolder
+import xyz.atnrch.wrench.data.SnackBarDataHolder
 import xyz.atnrch.wrench.logger.Logger
 import java.io.IOException
 import java.nio.file.Files
