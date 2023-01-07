@@ -7,7 +7,9 @@ import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
 
-class JsonConfig {
+class JsonConfig(
+    private val onWatcherEntriesUpdate: (List<WatcherEntry>) -> Unit
+) {
     private val gson: Gson = Gson().newBuilder().serializeNulls().setPrettyPrinting().create()
     private val file = File("layout.json")
     private val watcherEntryType = object : TypeToken<List<WatcherEntry>>() {}.type
@@ -17,6 +19,7 @@ class JsonConfig {
     }
 
     fun readLayout() {
-        gson.fromJson<List<WatcherEntry>>(FileReader(file), watcherEntryType)
+        val entries = gson.fromJson<List<WatcherEntry>>(FileReader(file), watcherEntryType)
+        onWatcherEntriesUpdate.invoke(entries)
     }
 }

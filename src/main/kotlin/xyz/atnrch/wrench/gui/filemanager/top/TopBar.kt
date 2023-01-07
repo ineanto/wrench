@@ -14,9 +14,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.gui.style.Fonts
 import xyz.atnrch.wrench.gui.style.UIColors
+import xyz.atnrch.wrench.json.JsonConfig
+import xyz.atnrch.wrench.watcher.WatcherEntry
 
 @Composable
-fun TopBar() {
+fun TopBar(
+    jsonConfig: JsonConfig,
+    tabIndex: Int,
+    values: MutableCollection<WatcherEntry>
+) {
     TopAppBar(
         backgroundColor = UIColors.DARK,
         contentColor = Color.White,
@@ -33,6 +39,11 @@ fun TopBar() {
                 text = "Wrench",
                 fontFamily = Fonts.JOST_MEDIUM
             )
+        },
+        actions = {
+            if (tabIndex == 0) {
+                TopBarButtons(jsonConfig, values)
+            }
         }
     )
 }
