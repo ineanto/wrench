@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import xyz.atnrch.wrench.gui.filemanager.center.dialog.EntryDialog
 import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
-import xyz.atnrch.wrench.ui.Fonts
-import xyz.atnrch.wrench.ui.UIColors
+import xyz.atnrch.wrench.gui.style.Fonts
+import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry
 
 @OptIn(ExperimentalUnitApi::class, ExperimentalFoundationApi::class)

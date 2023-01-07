@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.ui.Fonts
-import xyz.atnrch.wrench.ui.UIColors
+import xyz.atnrch.wrench.gui.style.Fonts
+import xyz.atnrch.wrench.gui.style.UIColors
 
 @OptIn(ExperimentalUnitApi::class)
 @Composable

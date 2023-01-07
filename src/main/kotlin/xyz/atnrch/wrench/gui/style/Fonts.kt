@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.ui
+package xyz.atnrch.wrench.gui.style
 
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle

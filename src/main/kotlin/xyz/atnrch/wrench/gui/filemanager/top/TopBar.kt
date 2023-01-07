@@ -12,8 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.ui.Fonts
-import xyz.atnrch.wrench.ui.UIColors
+import xyz.atnrch.wrench.gui.style.Fonts
+import xyz.atnrch.wrench.gui.style.UIColors
 
 @Composable
 fun TopBar() {

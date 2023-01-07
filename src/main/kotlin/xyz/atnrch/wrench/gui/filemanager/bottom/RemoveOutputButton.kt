@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
-import xyz.atnrch.wrench.ui.UIColors
+import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 

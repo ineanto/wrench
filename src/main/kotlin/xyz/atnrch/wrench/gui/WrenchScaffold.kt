@@ -10,7 +10,7 @@ import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.gui.filemanager.bottom.FloatingButton
 import xyz.atnrch.wrench.gui.filemanager.top.TopBar
 import xyz.atnrch.wrench.data.SnackBarDataHolder
-import xyz.atnrch.wrench.ui.UIColors
+import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
