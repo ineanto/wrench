@@ -9,20 +9,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
+import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
 import xyz.atnrch.wrench.registery.RegisterComposable
-import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
 fun InputEntries(
-    minmode: Boolean,
+    minMode: Boolean,
     watcherManager: WatcherManager,
     onEntryClick: (id: Int) -> Unit
 ) {
     Box(
         contentAlignment = Alignment.Center,
-        modifier = getModifier(minmode, onEntryClick)
+        modifier = getModifier(minMode, onEntryClick)
     ) {
         InputTopText()
         Column(
