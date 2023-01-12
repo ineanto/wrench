@@ -4,3 +4,4 @@ build
 .idea
 src/main/resources/font
 dummy
+layout.json
