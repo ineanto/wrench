@@ -14,12 +14,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.gui.style.Fonts
 import xyz.atnrch.wrench.gui.style.UIColors
-import xyz.atnrch.wrench.json.JsonConfig
+import xyz.atnrch.wrench.json.JsonLayout
 import xyz.atnrch.wrench.watcher.WatcherEntry
 
 @Composable
 fun TopBar(
-    jsonConfig: JsonConfig,
+    jsonLayout: JsonLayout,
     tabIndex: Int,
     values: MutableCollection<WatcherEntry>
 ) {
@@ -42,7 +42,7 @@ fun TopBar(
         },
         actions = {
             if (tabIndex == 0) {
-                TopBarButtons(jsonConfig, values)
+                TopBarButtons(jsonLayout, values)
             }
         }
     )
