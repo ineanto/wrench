@@ -5,16 +5,18 @@ import java.io.File
 import java.nio.file.Path
 
 class WatcherManager(private val entries: MutableMap<Int, WatcherEntry>) {
-    private var currentId: Int = -1
+    companion object {
+        var CURRENT_ID: Int = -1
+    }
 
     fun addFile(file: File, outputs: ArrayList<Path>) {
         val watcherEntry = WatcherEntry(file, outputs)
-        currentId += 1
-        entries[currentId] = watcherEntry
+        CURRENT_ID += 1
+        entries[CURRENT_ID] = watcherEntry
         Logger.info(
             """
             Tracking new file:
-            ID: $currentId
+            ID: $CURRENT_ID
             Name: ${file.name}
             Path: ${file.absolutePath}
         """.trimIndent()
