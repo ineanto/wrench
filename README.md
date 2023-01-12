@@ -11,7 +11,7 @@ file without asking for confirmation, use at your own risks!_
 
 Wrench came from the necessity to have a fast and reliable tool to move files easily.
 I'm making Minecraft Plugins, everytime a new build artifact is produced, I found myself digging through folders
-manually moving the file from the build folder to the destination one. In the long term that annoyed me so I've spent
+manually moving the file from the build folder to the destination one. In the long term that annoyed me, so I've spent
 some time making Wrench.
 
 ## Why JetPack Compose and Kotlin ?
