@@ -16,6 +16,7 @@ fun TopBarButtons(
     values: MutableCollection<WatcherEntry>
 ) {
     Button(onClick = {
+        println(values.toList().joinToString(","))
         jsonConfig.writeLayout(values.toList())
     }) {
         Text("Save")

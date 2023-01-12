@@ -6,20 +6,31 @@ import xyz.atnrch.wrench.watcher.WatcherEntry
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
+import java.nio.file.Path
 
 class JsonConfig(
     private val onWatcherEntriesUpdate: (List<WatcherEntry>) -> Unit
 ) {
-    private val gson: Gson = Gson().newBuilder().serializeNulls().setPrettyPrinting().create()
+    private val watcherEntryListType = object : TypeToken<List<WatcherEntry>>() {}.type
+    private val watcherEntryType = object : TypeToken<WatcherEntry>() {}.type
+    private val gson: Gson = Gson().newBuilder()
+        .registerTypeAdapter(watcherEntryType, WatcherEntryAdapter())
+        .registerTypeAdapter(Path::class.java, PathTypeAdapter())
+        .setPrettyPrinting()
+        .create()
     private val file = File("layout.json")
-    private val watcherEntryType = object : TypeToken<List<WatcherEntry>>() {}.type
 
     fun writeLayout(list: List<WatcherEntry>) {
-        gson.toJson(list, FileWriter(file))
+        val writer = FileWriter(file)
+        gson.toJson(list, writer)
+        writer.flush()
+        writer.close()
     }
 
     fun readLayout() {
-        val entries = gson.fromJson<List<WatcherEntry>>(FileReader(file), watcherEntryType)
+        val reader = FileReader(file)
+        val entries = gson.fromJson<List<WatcherEntry>>(reader, watcherEntryListType)
+        reader.close()
         onWatcherEntriesUpdate.invoke(entries)
     }
 }
