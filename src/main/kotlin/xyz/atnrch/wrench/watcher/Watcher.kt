@@ -34,7 +34,7 @@ class Watcher(
             val logMessage: String = if (foldersTotal < 1) {
                 "No files to move!"
             } else {
-                "Successfully moved $filesTotal ${if (filesTotal > 1) "files" else "file"} to $foldersTotal different ${if (foldersTotal > 1) "folders" else "folder"}."
+                "Successfully moved $filesTotal ${if (filesTotal > 1) "files" else "file"} to $foldersTotal ${if (foldersTotal > 1) "folders" else "folder"}."
             }
             Logger.info(logMessage)
             Logger.info("Done moving files.")
