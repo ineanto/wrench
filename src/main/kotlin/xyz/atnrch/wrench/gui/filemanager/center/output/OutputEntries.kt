@@ -31,7 +31,7 @@ fun OutputEntries(
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .border(BorderStroke(4.dp, UIColors.STRESS), RectangleShape)
+            .border(BorderStroke(4.dp, UIColors.LIGHT_RED), RectangleShape)
     ) {
         OutputTopText()
         Column(

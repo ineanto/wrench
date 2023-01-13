@@ -37,7 +37,7 @@ fun RemoveOutputButton(
             ACTIVE_COMPOSABLE = -1
             onCurrentClick.invoke(-1)
         },
-        colors = ButtonDefaults.buttonColors(UIColors.DARK, Color.White),
+        colors = ButtonDefaults.buttonColors(UIColors.DARK_PRIMARY, Color.White),
         contentPadding = PaddingValues(
             start = 14.dp,
             top = 6.dp,
@@ -45,12 +45,12 @@ fun RemoveOutputButton(
             bottom = 6.dp
         ),
         shape = RoundedCornerShape(100),
-        border = BorderStroke(2.dp, UIColors.STRESS),
+        border = BorderStroke(2.dp, UIColors.LIGHT_RED),
         modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false)
     ) {
         Icon(
             Icons.Filled.Delete,
-            tint = UIColors.STRESS,
+            tint = UIColors.LIGHT_RED,
             contentDescription = "Remove file",
             modifier = Modifier.size(22.dp)
         )

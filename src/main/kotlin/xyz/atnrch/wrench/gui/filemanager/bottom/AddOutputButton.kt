@@ -42,7 +42,7 @@ fun AddOutputButton(
                 Logger.info("No file selected.")
             })
         },
-        colors = ButtonDefaults.buttonColors(UIColors.DARK, Color.White),
+        colors = ButtonDefaults.buttonColors(UIColors.DARK_PRIMARY, Color.White),
         contentPadding = PaddingValues(
             start = 14.dp,
             top = 6.dp,

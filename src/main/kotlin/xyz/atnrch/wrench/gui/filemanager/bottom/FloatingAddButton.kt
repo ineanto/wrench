@@ -30,7 +30,7 @@ fun FloatingButton(
                 Logger.info("No file selected.")
             })
         },
-        backgroundColor = UIColors.DARK,
+        backgroundColor = UIColors.DARK_PRIMARY,
         modifier = Modifier.border(
             4.dp,
             UIColors.ORANGE,

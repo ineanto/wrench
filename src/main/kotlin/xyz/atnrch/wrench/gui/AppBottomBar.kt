@@ -23,7 +23,7 @@ fun AppBottomBar(
         cutoutShape = MaterialTheme.shapes.small.copy(
             CornerSize(percent = 50)
         ),
-        backgroundColor = UIColors.DARK
+        backgroundColor = UIColors.DARK_PRIMARY
     ) {
         FileBottomRow(minMode, watcherManager, watcher, currentClick, outputs, onCurrentClick)
     }

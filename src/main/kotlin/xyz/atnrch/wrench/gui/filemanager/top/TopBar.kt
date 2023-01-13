@@ -24,7 +24,7 @@ fun TopBar(
     values: MutableCollection<WatcherEntry>
 ) {
     TopAppBar(
-        backgroundColor = UIColors.DARK,
+        backgroundColor = UIColors.DARK_PRIMARY,
         contentColor = Color.White,
         elevation = 16.dp,
         title = {
