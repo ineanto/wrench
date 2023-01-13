@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import xyz.atnrch.wrench.gui.style.Fonts
 import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
@@ -35,35 +36,26 @@ fun OutputEntries(
     ) {
         OutputTopText()
         Column(
-            verticalArrangement = Arrangement.spacedBy(15.dp)
+            verticalArrangement = Arrangement.spacedBy(15.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             val entry: WatcherEntry? = watcherManager.getFromId(currentClick)
             if (entry != null) {
                 outputs.clear()
                 outputs.addAll(entry.outputs)
 
-                Box(
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        verticalArrangement = Arrangement.SpaceEvenly,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        if (outputs.isEmpty()) {
-                            Text(
-                                text = "This file does not have any output location.",
-                                fontSize = TextUnit(17F, TextUnitType.Sp),
-                                color = Color.White
-                            )
-                        } else {
-                            outputs.forEach {
-                                Text(
-                                    text = it.pathString,
-                                    color = Color.White
-                                )
-                            }
-                        }
-                    }
+                if (outputs.isEmpty()) Text(
+                    text = "This file does not have any output location.",
+                    fontSize = TextUnit(17F, TextUnitType.Sp),
+                    fontFamily = Fonts.ROBOTO_BOLD,
+                    color = Color.White
+                ) else outputs.forEach {
+                    Text(
+                        text = it.pathString,
+                        fontSize = TextUnit(17F, TextUnitType.Sp),
+                        fontFamily = Fonts.ROBOTO_REGULAR,
+                        color = Color.White
+                    )
                 }
             }
         }
