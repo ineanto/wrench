@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.registery
+package xyz.atnrch.wrench.gui.component
 
 import androidx.compose.runtime.Composable
 

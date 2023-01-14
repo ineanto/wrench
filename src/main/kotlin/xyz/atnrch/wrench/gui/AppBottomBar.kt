@@ -5,7 +5,7 @@ import androidx.compose.material.BottomAppBar
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import xyz.atnrch.wrench.gui.filemanager.bottom.FileBottomRow
-import xyz.atnrch.wrench.gui.style.UIColors
+import xyz.atnrch.wrench.gui.appearance.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path

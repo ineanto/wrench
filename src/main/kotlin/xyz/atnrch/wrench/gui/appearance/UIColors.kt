@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.gui.style
+package xyz.atnrch.wrench.gui.appearance
 
 import androidx.compose.ui.graphics.Color
 
@@ -6,7 +6,6 @@ class UIColors {
     companion object {
         val PRIMARY = Color(0xFF242424)
         val DARK_PRIMARY = Color(0XFF1B1B1B)
-        val LIGHT_PRIMARY = Color(0xFF6D6D6D)
 
         val LIGHT_RED = Color(0xFFF44336)
 

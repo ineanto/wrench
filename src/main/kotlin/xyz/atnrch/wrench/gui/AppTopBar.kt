@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.gui.filemanager.top
+package xyz.atnrch.wrench.gui
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
@@ -12,14 +12,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.gui.style.Fonts
-import xyz.atnrch.wrench.gui.style.UIColors
-import xyz.atnrch.wrench.json.JsonLayout
+import xyz.atnrch.wrench.gui.appearance.Fonts
+import xyz.atnrch.wrench.gui.appearance.UIColors
+import xyz.atnrch.wrench.gui.filemanager.top.FileManagerTopButtons
+import xyz.atnrch.wrench.storage.LayoutStorage
 import xyz.atnrch.wrench.watcher.WatcherEntry
 
 @Composable
 fun TopBar(
-    jsonLayout: JsonLayout,
+    layoutStorage: LayoutStorage,
     tabIndex: Int,
     values: MutableCollection<WatcherEntry>
 ) {
@@ -42,7 +43,7 @@ fun TopBar(
         },
         actions = {
             if (tabIndex == 0) {
-                TopBarButtons(jsonLayout, values)
+                FileManagerTopButtons(layoutStorage, values)
             }
         }
     )

@@ -2,7 +2,7 @@ package xyz.atnrch.wrench.watcher
 
 import androidx.compose.material.SnackbarDuration
 import kotlinx.coroutines.launch
-import xyz.atnrch.wrench.data.SnackBarDataHolder
+import xyz.atnrch.wrench.gui.component.SnackBarDataHolder
 import xyz.atnrch.wrench.logger.Logger
 import java.io.IOException
 import java.nio.file.Files
@@ -10,10 +10,7 @@ import java.nio.file.Path
 import java.nio.file.StandardCopyOption
 import kotlin.io.path.name
 
-class Watcher(
-    private val watcherManager: WatcherManager,
-    private val snackBarDataHolder: SnackBarDataHolder
-) {
+class Watcher(private val watcherManager: WatcherManager, private val snackBarDataHolder: SnackBarDataHolder) {
     fun move() {
         Logger.info("Moving files...")
         snackBarDataHolder.coroutineScope.launch {
@@ -27,15 +24,13 @@ class Watcher(
                         Files.copy(entry.file.toPath(), Path.of(movePath), StandardCopyOption.REPLACE_EXISTING)
                         foldersTotal += 1
                     } catch (exception: IOException) {
-                       Logger.warn("Failed to move ${it.name} to $movePath! (${exception.message}")
+                        Logger.warn("Failed to move ${it.name} to $movePath! (${exception.message}")
                     }
                 }
             }
-            val logMessage: String = if (foldersTotal < 1) {
-                "No files to move!"
-            } else {
+            val logMessage: String = if (foldersTotal < 1)
+                "No files to move!" else
                 "Successfully moved $filesTotal ${if (filesTotal > 1) "files" else "file"} to $foldersTotal ${if (foldersTotal > 1) "folders" else "folder"}."
-            }
             Logger.info(logMessage)
             Logger.info("Done moving files.")
             snackBarDataHolder.scaffoldState.snackbarHostState.currentSnackbarData?.dismiss()

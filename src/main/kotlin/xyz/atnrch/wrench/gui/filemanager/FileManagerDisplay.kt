@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.gui.filemanager.center.empty.DefaultDisplay
+import xyz.atnrch.wrench.gui.filemanager.center.DefaultDisplay
 import xyz.atnrch.wrench.gui.filemanager.center.input.InputEntries
 import xyz.atnrch.wrench.gui.filemanager.center.output.OutputEntries
 import xyz.atnrch.wrench.watcher.WatcherManager
@@ -42,18 +42,17 @@ fun FileManagerDisplay(
 }
 
 @Composable
-fun DisplayEntries(
-    minmode: Boolean,
+private fun DisplayEntries(
+    minMode: Boolean,
     watcherManager: WatcherManager,
     currentClick: Int,
     outputs: MutableList<Path>,
     onEntryClick: (id: Int) -> Unit
 ) {
     if (watcherManager.getEntries().isEmpty()) {
-        //watcherManager.addFile(File("/home/aro/IdeaProjects/Wrench/dummy"))
         DefaultDisplay()
     } else {
-        InputEntries(minmode, watcherManager, onEntryClick)
+        InputEntries(minMode, watcherManager, onEntryClick)
         OutputEntries(watcherManager, currentClick, outputs)
     }
 }

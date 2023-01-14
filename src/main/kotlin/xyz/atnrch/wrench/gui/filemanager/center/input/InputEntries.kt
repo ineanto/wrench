@@ -9,9 +9,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.gui.style.UIColors
-import xyz.atnrch.wrench.registery.ACTIVE_COMPOSABLE
-import xyz.atnrch.wrench.registery.RegisterComposable
+import xyz.atnrch.wrench.gui.appearance.UIColors
+import xyz.atnrch.wrench.gui.component.ACTIVE_COMPOSABLE
+import xyz.atnrch.wrench.gui.component.RegisterComposable
 import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
@@ -22,7 +22,7 @@ fun InputEntries(
 ) {
     Box(
         contentAlignment = Alignment.Center,
-        modifier = getModifier(minMode, onEntryClick)
+        modifier = getBoxModifier(minMode, onEntryClick)
     ) {
         InputTopText()
         Column(
@@ -42,26 +42,21 @@ fun InputEntries(
 }
 
 @Composable
-fun getModifier(
-    minmode: Boolean,
+private fun getBoxModifier(
+    minMode: Boolean,
     onEntryClick: (id: Int) -> Unit
 ): Modifier {
-    return if (minmode)
-        Modifier
+    val modifier: Modifier = Modifier.border(BorderStroke(4.dp, UIColors.ORANGE), RectangleShape)
+        .clickable {
+            ACTIVE_COMPOSABLE = -1
+            onEntryClick.invoke(-1)
+        }
+
+    return if (minMode)
+        modifier
             .fillMaxWidth()
             .fillMaxHeight(0.5f)
-            .border(BorderStroke(4.dp, UIColors.ORANGE), RectangleShape)
-            .clickable {
-                ACTIVE_COMPOSABLE = -1
-                onEntryClick.invoke(-1)
-            } else {
-        Modifier
-            .fillMaxHeight()
-            .fillMaxWidth(0.5f)
-            .border(BorderStroke(4.dp, UIColors.ORANGE), RectangleShape)
-            .clickable {
-                ACTIVE_COMPOSABLE = -1
-                onEntryClick.invoke(-1)
-            }
-    }
+    else modifier
+        .fillMaxHeight()
+        .fillMaxWidth(0.5f)
 }

@@ -16,9 +16,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import xyz.atnrch.wrench.gui.appearance.UIColors
 import xyz.atnrch.wrench.gui.filemanager.center.showDirectoryPicker
 import xyz.atnrch.wrench.logger.Logger
-import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path

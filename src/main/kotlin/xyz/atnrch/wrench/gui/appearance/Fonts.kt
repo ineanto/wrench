@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.gui.style
+package xyz.atnrch.wrench.gui.appearance
 
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -10,14 +10,6 @@ class Fonts {
         val JOST_MEDIUM: FontFamily = FontFamily(
             Font(
                 resource = "font/Jost-Medium.ttf",
-                style = FontStyle.Normal,
-                weight = FontWeight.Medium
-            )
-        )
-
-        val ROBOTO_MEDIUM: FontFamily = FontFamily(
-            Font(
-                resource = "font/Roboto-Medium.ttf",
                 style = FontStyle.Normal,
                 weight = FontWeight.Medium
             )

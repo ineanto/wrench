@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import xyz.atnrch.wrench.gui.filemanager.FileManagerDisplay
 import xyz.atnrch.wrench.gui.server.ServerManagerDisplay
-import xyz.atnrch.wrench.gui.style.UIColors
+import xyz.atnrch.wrench.gui.appearance.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 

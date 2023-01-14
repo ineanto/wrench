@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.gui.style.Fonts
-import xyz.atnrch.wrench.gui.style.UIColors
+import xyz.atnrch.wrench.gui.appearance.Fonts
+import xyz.atnrch.wrench.gui.appearance.UIColors
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path

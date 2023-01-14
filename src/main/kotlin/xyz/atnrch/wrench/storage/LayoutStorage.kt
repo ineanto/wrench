@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.json
+package xyz.atnrch.wrench.storage
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -7,16 +7,14 @@ import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
 
-class JsonLayout(
-    private val onWatcherEntriesUpdate: (List<WatcherEntry>) -> Unit
-) {
+class LayoutStorage(private val onWatcherEntriesUpdate: (List<WatcherEntry>) -> Unit) {
     private val entryListType = object : TypeToken<List<SerializedWatcherEntry>>() {}.type
     private val gson: Gson = Gson().newBuilder()
         .setPrettyPrinting()
         .create()
     private val file = File("layout.json")
 
-    fun writeLayout(list: List<SerializedWatcherEntry>) {
+    fun storeLayout(list: List<SerializedWatcherEntry>) {
         val writer = FileWriter(file)
         gson.toJson(list, writer)
         writer.flush()

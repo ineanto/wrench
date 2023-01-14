@@ -7,11 +7,10 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowState
-import xyz.atnrch.wrench.data.SnackBarDataHolder
-import xyz.atnrch.wrench.gui.filemanager.bottom.FloatingButton
-import xyz.atnrch.wrench.gui.filemanager.top.TopBar
-import xyz.atnrch.wrench.gui.style.UIColors
-import xyz.atnrch.wrench.json.JsonLayout
+import xyz.atnrch.wrench.gui.appearance.UIColors
+import xyz.atnrch.wrench.gui.component.SnackBarDataHolder
+import xyz.atnrch.wrench.gui.filemanager.bottom.FloatingAddButton
+import xyz.atnrch.wrench.storage.LayoutStorage
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import xyz.atnrch.wrench.watcher.WatcherManager
@@ -27,7 +26,7 @@ fun WrenchScaffold(state: WindowState) {
     val watcherManager = remember { WatcherManager(entries) }
     val watcher = remember { Watcher(watcherManager, snackBarDataHolder) }
     val tabTitles = listOf("File Manager", "Servers")
-    val jsonLayout = JsonLayout {
+    val layoutStorage = LayoutStorage {
         it.forEach { entry ->
             watcherManager.addFile(entry.file, entry.outputs)
         }
@@ -43,8 +42,8 @@ fun WrenchScaffold(state: WindowState) {
     } else {
         Scaffold(
             scaffoldState = scaffoldState,
-            topBar = { TopBar(jsonLayout, tabIndex, entries.values) },
-            floatingActionButton = { if (tabIndex == 0) FloatingButton(watcherManager) },
+            topBar = { TopBar(layoutStorage, tabIndex, entries.values) },
+            floatingActionButton = { if (tabIndex == 0) FloatingAddButton(watcherManager) },
             isFloatingActionButtonDocked = true,
             backgroundColor = UIColors.PRIMARY,
             bottomBar = {

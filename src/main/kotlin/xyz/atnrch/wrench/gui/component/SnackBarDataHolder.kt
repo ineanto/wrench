@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.data
+package xyz.atnrch.wrench.gui.component
 
 import androidx.compose.material.ScaffoldState
 import kotlinx.coroutines.CoroutineScope

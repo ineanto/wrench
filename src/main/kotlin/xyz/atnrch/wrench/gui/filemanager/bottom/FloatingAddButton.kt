@@ -12,13 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import xyz.atnrch.wrench.gui.appearance.UIColors
 import xyz.atnrch.wrench.gui.filemanager.center.showFilePicker
 import xyz.atnrch.wrench.logger.Logger
-import xyz.atnrch.wrench.gui.style.UIColors
 import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
-fun FloatingButton(
+fun FloatingAddButton(
     watcherManager: WatcherManager
 ) {
     FloatingActionButton(

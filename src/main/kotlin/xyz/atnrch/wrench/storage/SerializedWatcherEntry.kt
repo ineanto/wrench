@@ -1,4 +1,4 @@
-package xyz.atnrch.wrench.json
+package xyz.atnrch.wrench.storage
 
 import xyz.atnrch.wrench.watcher.WatcherEntry
 import java.io.File
