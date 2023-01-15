@@ -33,6 +33,7 @@ compose.desktop {
     application {
         mainClass = "xyz.atnrch.wrench.WrenchApp"
         nativeDistributions {
+            includeAllModules = true
             targetFormats(TargetFormat.AppImage)
             packageName = "Wrench"
             packageVersion = "1.0.0"

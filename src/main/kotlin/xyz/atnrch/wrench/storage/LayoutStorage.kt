@@ -12,7 +12,7 @@ class LayoutStorage(private val onWatcherEntriesUpdate: (List<WatcherEntry>) -> 
     private val gson: Gson = Gson().newBuilder()
         .setPrettyPrinting()
         .create()
-    private val file = File("layout.json")
+    private val file = File("./layout.json")
 
     fun storeLayout(list: List<SerializedWatcherEntry>) {
         val writer = FileWriter(file)

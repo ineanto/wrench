@@ -7,6 +7,7 @@ import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import xyz.atnrch.wrench.gui.WrenchScaffold
 import xyz.atnrch.wrench.logger.Logger
+import java.nio.file.Paths
 import javax.swing.UIManager
 
 class WrenchApp {
@@ -21,6 +22,7 @@ class WrenchApp {
                 onCloseRequest = ::exitApplication
             ) {
                 Logger.info("Starting Wrench...")
+                Logger.info("Working Directory: ${Paths.get("").toAbsolutePath()}")
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName())
                 MaterialTheme { WrenchScaffold(state) }
             }
