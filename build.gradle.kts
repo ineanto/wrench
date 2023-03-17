@@ -1,10 +1,10 @@
-import org.jetbrains.compose.ExperimentalComposeLibrary
+
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.20"
-    id("org.jetbrains.compose") version "1.2.1"
+    kotlin("jvm") version "1.8.10"
+    id("org.jetbrains.compose") version "1.3.1"
 }
 
 group = "xyz.atnrch"
@@ -16,7 +16,6 @@ repositories {
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
-@OptIn(ExperimentalComposeLibrary::class)
 dependencies {
     implementation(compose.desktop.currentOs)
     implementation(compose.materialIconsExtended)
@@ -26,7 +25,7 @@ dependencies {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "16"
+    kotlinOptions.jvmTarget = "18"
 }
 
 compose.desktop {
@@ -37,10 +36,6 @@ compose.desktop {
             targetFormats(TargetFormat.AppImage)
             packageName = "Wrench"
             packageVersion = "1.0.0"
-            linux {
-                packageName = "Wrench"
-                //iconFile.set(project.file(""))
-            }
         }
     }
 }
