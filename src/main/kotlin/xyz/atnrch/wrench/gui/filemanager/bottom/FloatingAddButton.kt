@@ -7,7 +7,7 @@ import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.PostAdd
+import androidx.compose.material.icons.filled.PostAdd
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,7 +40,7 @@ fun FloatingAddButton(
         )
     ) {
         Icon(
-            Icons.Rounded.PostAdd,
+            Icons.Filled.PostAdd,
             tint = Color.White,
             contentDescription = "Add file...",
             modifier = Modifier.size(32.dp)

@@ -1,17 +1,16 @@
-package xyz.atnrch.wrench.gui
+package xyz.atnrch.wrench.gui.filemanager.bottom
 
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import xyz.atnrch.wrench.gui.filemanager.bottom.FileBottomRow
 import xyz.atnrch.wrench.gui.appearance.UIColors
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 
 @Composable
-fun AppBottomBar(
+fun FileAppBottomBar(
     minMode: Boolean,
     watcherManager: WatcherManager,
     watcher: Watcher,
@@ -25,6 +24,6 @@ fun AppBottomBar(
         ),
         backgroundColor = UIColors.DARK_PRIMARY
     ) {
-        FileBottomRow(minMode, watcherManager, watcher, currentClick, outputs, onCurrentClick)
+        FileButtonBar(minMode, watcherManager, watcher, currentClick, outputs, onCurrentClick)
     }
 }

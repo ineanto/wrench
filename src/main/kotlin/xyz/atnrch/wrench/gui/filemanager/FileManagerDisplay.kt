@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import xyz.atnrch.wrench.gui.filemanager.center.DefaultDisplay
+import xyz.atnrch.wrench.gui.filemanager.center.EmptyFileManagerView
 import xyz.atnrch.wrench.gui.filemanager.center.input.InputEntries
 import xyz.atnrch.wrench.gui.filemanager.center.output.OutputEntries
 import xyz.atnrch.wrench.watcher.WatcherManager
@@ -50,7 +50,7 @@ private fun DisplayEntries(
     onEntryClick: (id: Int) -> Unit
 ) {
     if (watcherManager.getEntries().isEmpty()) {
-        DefaultDisplay()
+        EmptyFileManagerView()
     } else {
         InputEntries(minMode, watcherManager, onEntryClick)
         OutputEntries(watcherManager, currentClick, outputs)

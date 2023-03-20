@@ -9,7 +9,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowState
 import xyz.atnrch.wrench.gui.appearance.UIColors
 import xyz.atnrch.wrench.gui.component.SnackBarDataHolder
+import xyz.atnrch.wrench.gui.filemanager.bottom.FileAppBottomBar
 import xyz.atnrch.wrench.gui.filemanager.bottom.FloatingAddButton
+import xyz.atnrch.wrench.gui.server.bottom.ServerAppBottomBar
 import xyz.atnrch.wrench.storage.LayoutStorage
 import xyz.atnrch.wrench.watcher.Watcher
 import xyz.atnrch.wrench.watcher.WatcherEntry
@@ -25,7 +27,7 @@ fun WrenchScaffold(state: WindowState) {
     val snackBarDataHolder = SnackBarDataHolder(scaffoldState, rememberCoroutineScope())
     val watcherManager = remember { WatcherManager(entries) }
     val watcher = remember { Watcher(watcherManager, snackBarDataHolder) }
-    val tabTitles = listOf("File Manager", "Servers")
+    val tabTitles = listOf("Files", "Servers")
     val layoutStorage = LayoutStorage {
         it.forEach { entry ->
             watcherManager.addFile(entry.file, entry.outputs)
@@ -47,13 +49,16 @@ fun WrenchScaffold(state: WindowState) {
             isFloatingActionButtonDocked = true,
             backgroundColor = UIColors.PRIMARY,
             bottomBar = {
-                if (tabIndex == 0) AppBottomBar(
+                if (tabIndex == 0) FileAppBottomBar(
                     minMode,
                     watcherManager,
                     watcher,
                     currentClick,
                     outputs
                 ) { currentClick = it }
+                else {
+                    ServerAppBottomBar(minMode, currentClick) { currentClick = it }
+                }
             }
         ) {
             WatcherDisplay(

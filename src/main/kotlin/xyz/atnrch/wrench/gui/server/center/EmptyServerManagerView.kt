@@ -1,10 +1,10 @@
-package xyz.atnrch.wrench.gui.filemanager.center
+package xyz.atnrch.wrench.gui.server.center
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.CreateNewFolder
+import androidx.compose.material.icons.rounded.Flag
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,7 +18,7 @@ import xyz.atnrch.wrench.gui.appearance.UIColors
 
 @OptIn(ExperimentalUnitApi::class)
 @Composable
-fun DefaultDisplay() {
+fun UnderConstructionView() {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxWidth().fillMaxHeight()
@@ -28,14 +28,14 @@ fun DefaultDisplay() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Icon(
-                imageVector = Icons.Rounded.CreateNewFolder,
+                imageVector = Icons.Rounded.Flag,
                 tint = UIColors.ORANGE,
-                contentDescription = "Open Folder",
+                contentDescription = "Icon",
                 modifier = Modifier.size(58.dp)
             )
             Spacer(Modifier.height(24.dp))
             Text(
-                text = "Add a file to start...",
+                text = "Start by adding or clicking an existing server.",
                 fontFamily = Fonts.ROBOTO_BOLD,
                 fontSize = TextUnit(20F, TextUnitType.Sp),
                 color = Color.White
