@@ -13,7 +13,7 @@ fun ServerButtonBar(
     onCurrentClick: (Int) -> Unit,
 ) {
     Spacer(Modifier.width(10.dp))
-    AddServerStateButton(minMode)
+    StartServerStateButton(minMode)
     /*if (currentClick != -1) {
         Spacer(Modifier.width(10.dp))
         AddOutputButton(minMode, watcherManager, outputs, currentClick)

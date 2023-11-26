@@ -9,7 +9,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
@@ -20,7 +19,6 @@ import xyz.atnrch.wrench.watcher.WatcherManager
 import java.nio.file.Path
 import kotlin.io.path.pathString
 
-@OptIn(ExperimentalUnitApi::class)
 @Composable
 fun OutputEntries(
     watcherManager: WatcherManager,

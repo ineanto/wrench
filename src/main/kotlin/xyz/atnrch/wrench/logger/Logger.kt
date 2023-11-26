@@ -1,11 +1,11 @@
 package xyz.atnrch.wrench.logger
 
-import xyz.atnrch.wrench.WrenchApp
+import xyz.atnrch.wrench.Wrench
 
 class Logger {
     companion object {
         private fun log(level: Level, log: String) {
-            println("${WrenchApp.PREFIX} ${level.getName()} - $log")
+            println("${Wrench.PREFIX} ${level.getName()} - $log")
         }
 
         fun debug(log: String) {

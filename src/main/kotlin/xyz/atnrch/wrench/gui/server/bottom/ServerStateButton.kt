@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import xyz.atnrch.wrench.gui.appearance.UIColors
 
 @Composable
-fun AddServerStateButton(
+fun StartServerStateButton(
     minMode: Boolean,
 ) {
     Button(
@@ -34,13 +34,13 @@ fun AddServerStateButton(
             bottom = 6.dp
         ),
         shape = RoundedCornerShape(100),
-        border = BorderStroke(2.dp, UIColors.ORANGE),
+        border = BorderStroke(2.dp, UIColors.GREEN),
         modifier = Modifier.shadow(24.dp, RoundedCornerShape(100), false)
     ) {
         Icon(
             Icons.Filled.Start,
-            tint = UIColors.ORANGE,
-            contentDescription = "Add output",
+            tint = UIColors.GREEN,
+            contentDescription = "Start Server",
             modifier = Modifier.size(22.dp)
         )
         if(!minMode) {

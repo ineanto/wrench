@@ -18,7 +18,7 @@ import xyz.atnrch.wrench.logger.Logger
 import xyz.atnrch.wrench.watcher.WatcherManager
 
 @Composable
-fun FloatingAddButton(
+fun FileManagerAddButton(
     watcherManager: WatcherManager
 ) {
     FloatingActionButton(
